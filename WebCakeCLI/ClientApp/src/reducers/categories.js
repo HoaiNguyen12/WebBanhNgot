@@ -1,16 +1,13 @@
-import * as types from '../contraints/index';
+﻿import * as types from '../contraints/index';
 
 var initState = [];
 
 const product = (state = initState, action) => {
-    switch (action.type)
-    {
-        case types.GET_ALL_PRODUCT:
-            return [...state]
-        case types.FETCH_PRODUCT:
+    switch (action.type) {
+        case types.FETCH_CATEGORY:
             state = action.payload;
             return [...state];
-        default :
+        default:
             return [...state]
     }
 

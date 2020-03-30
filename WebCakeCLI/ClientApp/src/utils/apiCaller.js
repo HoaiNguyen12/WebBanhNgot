@@ -4,11 +4,9 @@ import * as Config from '../contraints/config';
 export default function callApi(endpoint, method = 'GET', body){
     return axios({
         method : method,
-        url : '${Config.API_URL}/${endpoint}',
+        url : `${Config.API_URL}/api/${endpoint}`,
         data : body,
-    }).then (res => {
-
     }).catch(err => {
-
+        console.log(err);
     })
 }
