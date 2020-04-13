@@ -4,7 +4,7 @@ import Header from '../Template/Header';
 import Footer from '../Template/Footer';
 import QT from '../Template/QT';
 import { connect } from 'react-redux';
-import { actFetchProductRequest } from '../../actions/product';
+import { actFetchProductCategoryRequest } from '../../actions/product';
 import { actFetchCategoryRequest } from '../../actions/category';
 
 class MenuProduct extends Component {
@@ -14,7 +14,7 @@ class MenuProduct extends Component {
 	}
 	showProducts(products) {
 		var list = null;
-		if (products.lenght > 0) {
+		if (products.length > 0) {
 			list = products.map((product, index) => {
 				return (<Product
 					key={product.productId}
@@ -30,21 +30,19 @@ class MenuProduct extends Component {
 		var list = null;
 		if (categories.length > 0) {
 			list = categories.map((category, index) => {
-				return <button key={index}>{category.categoryName}</button>
+				return <button key={index} className="active">{category.categoryName}</button>
 			})
 		}
 		return list;
 	}
 
 	componentDidMount() {
-		this.props.fetchAllProduct();
+		this.props.fetchProduct(0);
 		this.props.fetchCategory();
 	}
 
 	render() {
 		var { products, categories } = this.props;
-
-
 		return (
 			<div>
 				<Header />
@@ -71,7 +69,6 @@ class MenuProduct extends Component {
 							<div className="col-lg-12">
 								<div className="special-menu text-center">
 									<div className="button-group filter-button-group">
-										<button className="active" data-filter="*">All</button>
 										{this.showCategories(categories)}
 									</div>
 								</div>
@@ -81,104 +78,7 @@ class MenuProduct extends Component {
 						<div className="row special-list">
 
 							{this.showProducts(products)}
-							<div className="col-lg-4 col-md-6 special-grid drinks">
-								<div className="gallery-single fix">
-									<img src="images/img-01.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Drinks 1</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $7.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid drinks">
-								<div className="gallery-single fix">
-									<img src="images/img-02.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Drinks 2</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $9.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid drinks">
-								<div className="gallery-single fix">
-									<img src="images/img-03.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Drinks 3</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $10.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid lunch">
-								<div className="gallery-single fix">
-									<img src="images/img-04.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Lunch 1</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $15.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid lunch">
-								<div className="gallery-single fix">
-									<img src="images/img-05.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Lunch 2</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $18.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid lunch">
-								<div className="gallery-single fix">
-									<img src="images/img-06.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Lunch 3</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $20.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid dinner">
-								<div className="gallery-single fix">
-									<img src="images/img-07.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Dinner 1</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $25.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid dinner">
-								<div className="gallery-single fix">
-									<img src="images/img-08.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Dinner 2</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $22.79</h5>
-									</div>
-								</div>
-							</div>
-
-							<div className="col-lg-4 col-md-6 special-grid dinner">
-								<div className="gallery-single fix">
-									<img src="images/img-09.jpg" className="img-fluid" alt="Image" />
-									<div className="why-text">
-										<h4>Special Dinner 3</h4>
-										<p>Sed id magna vitae eros sagittis euismod.</p>
-										<h5> $24.79</h5>
-									</div>
-								</div>
-							</div>
+							
 
 						</div>
 					</div>
@@ -199,8 +99,8 @@ var mapStateToProps = state => {
 
 var mapDispathToProps = (dispatch, props) => {
 	return {
-		fetchAllProduct: () => {
-			dispatch(actFetchProductRequest());
+		fetchProduct: (id) => {
+			dispatch(actFetchProductCategoryRequest(id));
 		},
 		fetchCategory: () => {
 			dispatch(actFetchCategoryRequest());

@@ -8,18 +8,19 @@ export const listAll = () => {
 }
 
 
-export const actFetchProductRequest = () => {
+export const actFetchProductCategoryRequest = (id) => {
     return (dispatch) => {
-        return callApi("products", "GET", null).then(res => {
+        return callApi("categories/" + id, "GET", null).then(res => {
             //console.log(res);
-            dispatch(actFetchProduct(res.data))
+            dispatch(actFetchProductCategory(res.data))
         });
     }
 }
 
-export const actFetchProduct = (products) => {
+export const actFetchProductCategory = (products) => {
     return {
         type : types.FETCH_PRODUCT,
         payload : products
     }
 }
+

@@ -29,16 +29,18 @@ namespace WebCakeAPI.Controllers
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<IEnumerable<Product>>> GetCategory(int id)
         {
-            var category = await _context.Categorys.FindAsync(id);
 
-            if (category == null)
+            if (id == 0)
+                id = _context.Categorys.Select(o => o.categoryId).FirstOrDefault();
+            var products = await _context.Products.Where(o => o.categoryId == id).ToListAsync();
+            if (id == null)
             {
                 return NotFound();
             }
 
-            return category;
+            return products;
         }
 
         // PUT: api/Categories/5

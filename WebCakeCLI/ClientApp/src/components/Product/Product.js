@@ -3,14 +3,14 @@ import React, { Component } from "react";
 class Product extends Component {
 	render() {
 		return (
-			<div className="col-lg-4 col-md-6 special-grid drinks">
+			<div className="col-lg-4 col-md-6">
 				<div className="gallery-single fix">
-					<img src={this.props.Image} className="img-fluid" alt="Image" />
-					<div className="why-text">
-						<h4>{this.props.Name}</h4>
-						<p>{this.props.Description}</p>
-						<h5> {this.props.Price} VNĐ</h5>
-					</div>
+					<img src={"images/" + this.props.product.productImage} className="img-fluid" style={{ height : 20 +'em', width: 25 + 'em'}} />
+					<div>
+						<h4>{this.props.product.productName}</h4>
+							<p>{this.props.product.productDescription}</p>
+							<p className="Price"> {this.props.product.productPrice} VNĐ</p>
+						</div>
 				</div>
 			</div>
 		)
