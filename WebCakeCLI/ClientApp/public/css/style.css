@@ -1327,6 +1327,47 @@ blockquote {
 }
 
 
+#product .box {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin: 12px 10px;
+  position: relative;
+}
+#product .box img {
+  width: 23em;
+  height: 19em;
+  margin: auto;
+}
+    #product .box i {
+        width: 50px;
+        height: 50px;
+        background: #EE7621;
+        color: #ffffff;
+        border-radius: 25px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.4rem;
+        position: absolute;
+        right: 2em;
+        top: 11.5em;
+        box-shadow: 0 0 4px 2px rgba(80, 80, 80, 0.1);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+#product .box i:hover {
+  transform: scale(1.05);
+}
+    #product .box h2 {
+        margin-top: 20px;
+        margin-left: 20px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 25px;
+    }
+#product .box p {
+  margin-left: 20px;
+}
 
 
 
