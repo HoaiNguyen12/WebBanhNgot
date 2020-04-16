@@ -1,7 +1,9 @@
 import React, { Component }  from 'react';
 import {NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Header extends Component {
+	
     render() {
         return(
         <header className="top-navbar">
@@ -14,10 +16,11 @@ class Header extends Component {
 				  <span className="navbar-toggler-icon"></span>
 				</button>
 				<div className="collapse navbar-collapse" id="navbars-rs-food">
-					<ul className="navbar-nav ml-auto">
-						<li className="nav-item active"><NavLink className="nav-link" to="/">Home</NavLink></li>
-						<li className="nav-item"><NavLink className="nav-link" to="/menu">Menu</NavLink></li>
-						<li className="nav-item"><NavLink className="nav-link" to="/about">About</NavLink></li>
+							<ul className="navbar-nav ml-auto">
+								<li className="nav-item" ><NavLink className="nav-link" exact activeClassName="active" to="/">Home</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/menu">Menu</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about">About</NavLink></li>
+
 						{/* <li className="nav-item dropdown">
 							<a className="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Pages</a>
 							<div className="dropdown-menu" aria-labelledby="dropdown-a">
@@ -25,16 +28,17 @@ class Header extends Component {
 								<a className="dropdown-item" href="stuff.html">Stuff</a>
 								<a className="dropdown-item" href="gallery.html">Gallery</a>
 							</div>
-						</li> */}
+						</li> 
 						<li className="nav-item dropdown">
 							<a className="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog</a>
 							<div className="dropdown-menu" aria-labelledby="dropdown-a">
 								<a className="dropdown-item" href="blog.html">blog</a>
 								<a className="dropdown-item" href="blog-details.html">blog Single</a>
 							</div>
-						</li>
-						<li className="nav-item"><NavLink className="nav-link" to="/contact">Contact</NavLink></li>
-					</ul>
+						</li>*/}
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact">Contact</NavLink></li>
+							</ul>
+							<p className="fa fa-cart"></p>
 				</div>
 			</div>
 		</nav>
@@ -44,4 +48,14 @@ class Header extends Component {
         
 }
 
-export default Header;
+var mapStateToProps = state => {
+	return {
+	}
+}
+
+var mapDispathToProps = (dispatch, props) => {
+	return {
+	}
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);

@@ -8,32 +8,32 @@ export default class About extends Component {
         return (
             <div>
                 <Header />
-                <div class="all-page-title page-breadcrumb">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-lg-12">
+                <div className="all-page-title page-breadcrumb">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col-lg-12">
                                 <h1>About Us</h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-section-box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <img src="images/about-img.jpg" alt="" class="img-fluid" />>
+                <div className="about-section-box">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 col-md-6">
+                                <img src="images/about-img.jpg" alt="" className="img-fluid" />>
 				</div>
-                            <div class="col-lg-6 col-md-6 text-center">
-                                <div class="inner-column">
+                            <div className="col-lg-6 col-md-6 text-center">
+                                <div className="inner-column">
                                     <h1>Welcome To <span>Yamifood Restaurant</span></h1>
                                     <h4>Little Story</h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
                                     <p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
-                                    <a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
+                                    <a className="btn btn-lg btn-circle btn-outline-new-white" href="#">Reservation</a>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="inner-pt">
+                            <div className="col-md-12">
+                                <div className="inner-pt">
                                     <p>Sed tincidunt, neque at egestas imperdiet, nulla sapien blandit nunc, sit amet pulvinar orci nibh ut massa. Proin nec lectus sed nunc placerat semper. Duis hendrerit elit nec sapien porttitor, ut pretium ipsum feugiat. Aenean volutpat porta nisi in gravida. Curabitur pulvinar ligula sed facilisis bibendum. Nullam vitae nulla elit. </p>
                                     <p>Integer purus velit, eleifend eu magna volutpat, porttitor blandit lectus. Aenean risus odio, efficitur quis erat eget, mattis tristique arcu. Fusce in ante enim. Integer consectetur elit nec laoreet rutrum. Mauris porta turpis nec tellus accumsan pellentesque. Morbi non quam tempus, convallis urna in, cursus mauris. </p>
                                 </div>
@@ -42,21 +42,21 @@ export default class About extends Component {
                     </div>
                 </div>
                 
-                <div class="menu-box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="heading-title text-center">
+                <div className="menu-box">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="heading-title text-center">
                                     <h2>Special Menu</h2>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="special-menu text-center">
-                                    <div class="button-group filter-button-group">
-                                        <button class="active" data-filter="*">All</button>
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="special-menu text-center">
+                                    <div className="button-group filter-button-group">
+                                        <button className="active" data-filter="*">All</button>
                                         <button data-filter=".drinks">Drinks</button>
                                         <button data-filter=".lunch">Lunch</button>
                                         <button data-filter=".dinner">Dinner</button>
@@ -65,11 +65,11 @@ export default class About extends Component {
                             </div>
                         </div>
 
-                        <div class="row special-list">
-                            <div class="col-lg-4 col-md-6 special-grid drinks">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-01.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                        <div className="row special-list">
+                            <div className="col-lg-4 col-md-6 special-grid drinks">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-01.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Drinks 1</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $7.79</h5>
@@ -77,10 +77,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid drinks">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-02.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid drinks">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-02.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Drinks 2</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $9.79</h5>
@@ -88,10 +88,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid drinks">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-03.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid drinks">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-03.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Drinks 3</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $10.79</h5>
@@ -99,10 +99,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid lunch">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-04.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid lunch">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-04.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Lunch 1</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $15.79</h5>
@@ -110,10 +110,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid lunch">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-05.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid lunch">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-05.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Lunch 2</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $18.79</h5>
@@ -121,10 +121,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid lunch">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-06.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid lunch">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-06.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Lunch 3</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $20.79</h5>
@@ -132,10 +132,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid dinner">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-07.jpg" class="img-fluid" alt="Image" />
-                                    <div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid dinner">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-07.jpg" className="img-fluid" alt="Image" />
+                                    <div className="why-text">
                                         <h4>Special Dinner 1</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $25.79</h5>
@@ -143,10 +143,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid dinner">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-08.jpg" class="img-fluid" alt="Image" />>
-						<div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid dinner">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-08.jpg" className="img-fluid" alt="Image" />>
+						<div className="why-text">
                                         <h4>Special Dinner 2</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $22.79</h5>
@@ -154,10 +154,10 @@ export default class About extends Component {
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 special-grid dinner">
-                                <div class="gallery-single fix">
-                                    <img src="images/img-09.jpg" class="img-fluid" alt="Image" />>
-						<div class="why-text">
+                            <div className="col-lg-4 col-md-6 special-grid dinner">
+                                <div className="gallery-single fix">
+                                    <img src="images/img-09.jpg" className="img-fluid" alt="Image" />>
+						<div className="why-text">
                                         <h4>Special Dinner 3</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $24.79</h5>
@@ -168,32 +168,32 @@ export default class About extends Component {
                         </div>
                     </div>
                 </div>
-                <div class="contact-imfo-box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <i class="fa fa-volume-control-phone"></i>
-                                <div class="overflow-hidden">
+                <div className="contact-imfo-box">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-4">
+                                <i className="fa fa-volume-control-phone"></i>
+                                <div className="overflow-hidden">
                                     <h4>Phone</h4>
-                                    <p class="lead">
+                                    <p className="lead">
                                         +01 123-456-4590
 						</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <i class="fa fa-envelope"></i>
-                                <div class="overflow-hidden">
+                            <div className="col-md-4">
+                                <i className="fa fa-envelope"></i>
+                                <div className="overflow-hidden">
                                     <h4>Email</h4>
-                                    <p class="lead">
+                                    <p className="lead">
                                         yourmail@gmail.com
 						</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <i class="fa fa-map-marker"></i>
-                                <div class="overflow-hidden">
+                            <div className="col-md-4">
+                                <i className="fa fa-map-marker"></i>
+                                <div className="overflow-hidden">
                                     <h4>Location</h4>
-                                    <p class="lead">
+                                    <p className="lead">
                                         800, Lorem Street, US
 						</p>
                                 </div>

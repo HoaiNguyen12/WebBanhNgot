@@ -25,12 +25,17 @@ class MenuProduct extends Component {
 		return list;
 	}
 
+	getProducts(categoryId) {
+		console.log(categoryId);
+		this.props.fetchProduct(categoryId);
+	}
+
 	showCategories(categories) {
 		//console.log(categories);
 		var list = null;
 		if (categories.length > 0) {
 			list = categories.map((category, index) => {
-				return <button key={index} className="active">{category.categoryName}</button>
+				return <button key={category.categoryId} onClick={() => this.getProducts(category.categoryId)} className="nav-item" activeClassName="active-menu">{category.categoryName}</button>
 			})
 		}
 		return list;

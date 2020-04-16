@@ -1,12 +1,6 @@
 import * as types from '../contraints/index';
 import callApi from '../utils/apiCaller';
 
-export const listAll = () => {
-    return {
-        type : types.GET_ALL_PRODUCT
-    }
-}
-
 
 export const actFetchProductCategoryRequest = (id) => {
     return (dispatch) => {
