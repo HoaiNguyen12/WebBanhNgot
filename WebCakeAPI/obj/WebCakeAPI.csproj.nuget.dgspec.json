@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj": {}
+    "E:\\slide_ky_8\\WebBanhNgot\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj": {
+    "E:\\slide_ky_8\\WebBanhNgot\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj",
+        "projectUniqueName": "E:\\slide_ky_8\\WebBanhNgot\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj",
         "projectName": "WebCakeAPI",
-        "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\obj\\",
+        "projectPath": "E:\\slide_ky_8\\WebBanhNgot\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj",
+        "packagesPath": "C:\\Users\\Huong\\.nuget\\packages\\",
+        "outputPath": "E:\\slide_ky_8\\WebBanhNgot\\WebBanhNgot\\WebCakeAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Huong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
