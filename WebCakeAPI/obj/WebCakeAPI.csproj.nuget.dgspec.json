@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebCake\\WebCakeAPI\\WebCakeAPI\\WebCakeAPI.csproj": {}
+    "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebCake\\WebCakeAPI\\WebCakeAPI\\WebCakeAPI.csproj": {
+    "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebCake\\WebCakeAPI\\WebCakeAPI\\WebCakeAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj",
         "projectName": "WebCakeAPI",
-        "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebCake\\WebCakeAPI\\WebCakeAPI\\WebCakeAPI.csproj",
+        "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\WebCakeAPI.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebCake\\WebCakeAPI\\WebCakeAPI\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2019\\Code Snippets\\Visual C#\\My Code Snippets\\WebBanhNgot\\WebCakeAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
