@@ -4,18 +4,18 @@ var initialState = [
     {
         product: {
             id: 1,
-            name: 'iphone 7',
-            price: 500,
+            name: 'Iphone 7',
+            price: 12000
         },
-        quantity:3
+        quantity: 1
     },
     {
         product: {
-            id: 3,
-            name: 'oppo F1',
-            price: 400,
+            id: 2,
+            name: 'Iphone 6',
+            price: 8000
         },
-        quantity:2
+        quantity: 2
     }
 ];
 
@@ -33,14 +33,13 @@ const cart = (state = initialState, action) => {
                     quantity
                 });
             }
-            //chỗ này phải viết lưu vào đâu đó, nhưng chưa viết
+            localStorage.setItem('CART', JSON.stringify(state));
             return [...state];
         case types.DELETE_PRODUCT_IN_CART:
             index = findProductInCart(state, product);
             if(index !== -1){
                 state.splice(index,1);
             }
-            //như trên
             localStorage.setItem('CART',JSON.stringify(state));
             return [...state];
         case types.UPDATE_PRODUCT_IN_CART:
@@ -48,7 +47,11 @@ const cart = (state = initialState, action) => {
             if(index !== -1){
                 state[index].quantity = quantity;
             }
-            //như trên
+            localStorage.setItem('CART', JSON.stringify(state));
+            return [...state];
+        case types.DELETE_CART:
+            state.splice(state[0], state.length);
+            localStorage.removeItem('CART');
             return [...state];
         default: return [...state];
     }

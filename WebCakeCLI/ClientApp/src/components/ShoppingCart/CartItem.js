@@ -3,29 +3,31 @@ import React, { Component } from 'react';
 class CartItem extends Component {
 
     render() {
-
+        var { item} = this.props;
+        var { quantity} = item;
         return (
             <tr>
-                <td>BanhNgot</td>
-                <td>100$</td>
+                <td></td>
+                <td style={{marginTop:'25px'}}>{ item.product.name }</td>
+                <td>{ item.product.price}VNĐ</td>
                 <td className="center-on-small-only">
-                    <span className="qty">10  </span>
+                    <span className="qty">{quantity} </span>
                     <div className="btn-group radio-group" data-toggle="buttons" >
-                        <label  
+                        <label  onClick={() => this.onUpdateQuantity(item.product, item.quantity - 1)}
                             className="btn btn-sm">
-                            <a><i class="fa fa-minus" aria-hidden="true"></i></a>
+                            <a><i className="fa fa-minus" aria-hidden="true"></i></a>
                         </label>
-                        <label 
+                        <label onClick={() => this.onUpdateQuantity(item.product, item.quantity + 1)}
                             className="btn btn-sm ">
-                            <a><i class="fa fa-plus" aria-hidden="true"></i></a>
+                            <a><i className="fa fa-plus" aria-hidden="true"></i></a>
                         </label>
                     </div>
                 </td>
-                <td>100$</td>
+                <td>{ this.showSubTotal(item.product.price, item.quantity) }VNĐ</td>
                 <td>
-                    <button type="button" className="btn" data-toggle="tooltip" data-placement="top"
-                        title="" data-original-title="Remove item" >
-                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                    <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
+                        title="" data-original-title="Remove item" onClick= { () => this.onDelete(item.product)} >
+                        <i className="fa fa-trash-o fa-1x" aria-hidden="true"></i>
                     </button>
                 </td>
             </tr>
@@ -33,6 +35,20 @@ class CartItem extends Component {
     );
   }
 
+  onDelete = (product) => {
+    var { onDeleteProductInCart} = this.props;
+    onDeleteProductInCart(product);
+  }
+
+  onUpdateQuantity = (product, quantity) => {
+    if(quantity > 0){
+        var { onUpdateProductInCart} = this.props;
+        onUpdateProductInCart(product,quantity);
+    }
+  }
+  showSubTotal = (price, quantity) => {
+      return price * quantity;
+  }
 
 }
 

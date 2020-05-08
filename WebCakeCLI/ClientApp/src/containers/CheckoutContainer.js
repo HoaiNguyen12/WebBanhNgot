@@ -2,34 +2,50 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Checkout from '../components/Checkout/Checkout';
 import YourOrder from '../components/Checkout/YourOrder';
+import CustomerInfo from '../components/Checkout/CustomerInfo';
+import { actPaymentRequest } from './../actions/cart';
 
 class CheckoutContainer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: '',
+            name: '',
+            phone: '',
+            address: '',
+            note: '',
+            pay: ''
+        };
+    }
+
     render(){
-       var { cart} = this.props;
+       var { cart, onPayment } = this.props;
         return (
-            <Checkout>
-                <div className="col-md-5 order-md-2 mb-4" style={{fontSize:'20px',color:'black'}}>
-                    <h2 className="d-flex justify-content-between align-items-center mb-3">
-                        <span className="text-muted">Đơn hàng của bạn</span>
-                        <span className="badge badge-secondary badge-pill"></span>
-                    </h2>
-                    <ul className="list-group mb-3" >
-                        { this.showCartItem(cart)}
-                    </ul>
-                    <div className="list-group-item d-flex justify-content-between">
-                        <span>Tổng tiền</span>
-                        <strong>{this.showTotalAmount(cart)}VNĐ</strong>
-                    </div>
-                    <hr />
-                    <button className="btn btn-primary btn-lg btn-block" type="submit">
-                        <i className="fa fa-credit-card"></i> Đặt hàng</button>
-                </div>
-                
+            <Checkout onPayment={onPayment} cart={cart} payment={ this.state}>
+               { this.showCustomerInfo()}
+                { this.showCartItem(cart)}
             </Checkout>
         );
     }
+    
+    handleChange = (data) => {
+        this.setState({
+            id: data.id,
+            name: data.name,
+            phone: data.phone,
+            address: data.address,
+            note: data.note,
+            pay: data.pay
+       });
+    };
+    
 
+    showCustomerInfo = () => { 
+        return (
+            <CustomerInfo onHandleChange={this.handleChange}/>
+        )
+    }
     showCartItem = (cart) => {
         var result = null;
         if(cart.length > 0){
@@ -60,12 +76,15 @@ class CheckoutContainer extends Component {
 const mapStateToProps = state => {
     return {
         cart: state.cart
+        
     }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        
+        onPayment: (payment,cart) => {
+            dispatch(actPaymentRequest(payment, cart));
+        }
     }
 }
 

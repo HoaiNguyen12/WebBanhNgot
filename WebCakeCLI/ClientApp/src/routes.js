@@ -5,7 +5,9 @@ import Product from './components/Product/Product';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 import NotFound from './components/NotFound/NotFound';
+import CheckoutContainer from './containers/CheckoutContainer';
 import React from 'react';
+import CartContainer from './containers/CartContainer';
 
 const routes = [
     {
@@ -32,6 +34,16 @@ const routes = [
         path : '/product/:id',
         exact : false,
         main : ({match}) => <Product match={match}/>
+    },
+    {
+        path : '/cart',
+        exact : false,
+        main : () => <CartContainer />
+    },
+    {
+        path : '/checkout',
+        exact : false,
+        main : () => <CheckoutContainer />
     },
     {
         path : '',
