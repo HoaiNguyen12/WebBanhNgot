@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Cart from './../components/ShoppingCart/Cart';
 import CartItem from './../components/ShoppingCart/CartItem';
 import CartResult from './../components/ShoppingCart/CartResult';
-import { actDeleteProductInCart, actUpdateProductInCart, actFetchProductInCartRequest } from './../actions/cart';
+import { actDeleteProductInCart, actUpdateProductInCart } from './../actions/cart';
 import * as Message from './../contraints/Message';
 
 class CartContainer extends Component {
@@ -19,13 +19,14 @@ class CartContainer extends Component {
     }
 
     componentDidMount(){
-        var { cart} = this.props;
-        this.props.fetchProductInCart(cart);
+        
     }
 
     showCartItem = (cart) => {
         var { onDeleteProductInCart, onUpdateProductInCart } = this.props;
-        var result = <div>{Message.MSG_CART_EMPTY}</div>;
+        var result = <tr>
+            <td>{Message.MSG_CART_EMPTY}</td>
+        </tr>;
         if(cart.length > 0){
             result = cart.map((item, index) => {
                 return (
@@ -59,10 +60,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-
-        fetchProductInCart: (cart) => {
-            dispatch(actFetchProductInCartRequest(cart));
-        },
         onDeleteProductInCart : (product) => {
             dispatch(actDeleteProductInCart(product));
         },

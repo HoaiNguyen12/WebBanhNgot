@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Header from './../Template/Header';
 import Footer from './../Template/Footer';
-import CustomerInfo from './CustomerInfo';
-import YourOrder from './YourOrder';
 import Contact from '../Home/Contact';
 
 class Checkout extends Component {
 
-    render() {
+   
 
+    render() {
+        var { children, cart } = this.props;
         return (
             <div >
                 <Header />
@@ -16,25 +16,57 @@ class Checkout extends Component {
                     <div className="container text-center">
                         <div className="row">
                             <div className="col-lg-12">
-                                <h1></h1>
+                                <h1>Thông tin đặt hàng</h1>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div id="content">
-                        <form action="#" method="post" className="beta-form-checkout">
+                        <form className="beta-form-checkout" onSubmit={this.onSave}>
                             <div className="row" style={{marginTop:'20px',color:'black',fontSize:'18px'}}>
-                                <CustomerInfo />
-                                <YourOrder />
-                              </div>
-			            </form>
+                                { children[0]}
+                                <div className="col-md-5 order-md-2 mb-4" style={{fontSize:'20px',color:'black'}}>
+                                    <h2 className="d-flex justify-content-between align-items-center mb-3">
+                                        <span className="text-muted">Đơn hàng của bạn</span>
+                                        <span className="badge badge-secondary badge-pill"></span>
+                                    </h2>
+                                    <ul className="list-group mb-3" >
+                                       { children[1]}
+                                    </ul>
+                                    <div className="list-group-item d-flex justify-content-between">
+                                        <span>Tổng tiền</span>
+                                        <strong> {this.showTotalAmount(cart)}VNĐ</strong>
+                                    </div>
+                                    <hr />
+                                    <button className="btn btn-primary btn-lg btn-block" type="submit" > 
+                                                <i className="fa fa-credit-card"></i> Đặt hàng</button>
+                                </div>
+                            </div>
+                             
+			            </form> 
                     </div> 
 	            </div>
                 <Contact />
                 <Footer />
             </div>
         );
+    }
+
+    showTotalAmount = (cart) => {
+        var total = 0;
+        if (cart.length > 0) {
+            for (var i = 0; i < cart.length; i++) {
+                total += cart[i].product.price * cart[i].quantity;
+            }
+        }
+        return total;
+    }
+
+    onSave = (e) => {
+        e.preventDefault();
+ //     console.log(this.props);
+        this.props.onPayment(this.props.payment, this.props.cart);
     }
 }
 

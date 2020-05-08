@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import Header from './../Template/Header';
 import Footer from './../Template/Footer';
-import CartItem from './CartItem';
-import CartResult from './CartResult';
 import Contact from './../Home/Contact';
 
 
 class Cart extends Component {
 
     render() {
-
+        var { children} = this.props;
         return (
             <div>
                 <Header />
@@ -17,28 +15,27 @@ class Cart extends Component {
                     <div className="container text-center">
                         <div className="row">
                             <div className="col-lg-12">
-                                <h1>Shopping Cart</h1>
+                                <h1>Giỏ hàng của bạn</h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container" style={{marginTop:'20px', color:'black',fontSize:'18px'}}>
-                    <table class="table table-bordered">
+                <div className="container" style={{marginTop:'20px', color:'black',fontSize:'18px'}}>
+                    <table className="table">
                         <thead>
                             <tr>
-                                <th>STT</th>
-                                <th>product Name</th>
-                                <th>email</th>
+                                <th></th>
+                                <th>Sản phẩm</th>
+                                <th>Gía</th>
+                                <th>Số lượng</th>
                                 <th>Tổng cộng</th>
                                 <th>Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <CartItem />
-                            
+                            { children}
                         </tbody>
                     </table>
-                    <CartResult />
                 </div>
                 <Contact />
                 <Footer />

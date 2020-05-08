@@ -24,17 +24,20 @@ export const actUpdateProductInCart = (product,quantity) => {
     }
 }
 
-export const actFetchProductInCartRequest = (cart) => {
+export const actPaymentRequest = (payment,cart) => {
     return (dispatch) => {
-        return callApi('cart','GET', cart).then(res => {
-//            dispatch(actFetchProductInCart(res.data));
+        return callApi('payments','POST', {
+           payment,
+           cart
+        }).then(res => {
+            dispatch(actPayment(res.data.payment, res.data.cart));
         });
     };
 }
-
-export const actFetchProductInCart = (cart) => {
+export const actPayment = (payment,cart) => {
     return {
-        type: types.FETCH_PRODUCT_IN_CART,
+        type: types.PAYMENT_CART,
+        payment,
         cart
-    };
+    }
 }
