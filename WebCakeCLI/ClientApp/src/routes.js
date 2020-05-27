@@ -4,6 +4,7 @@ import MenuProduct from './components/Product/MenuProduct';
 import Product from './components/Product/Product';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
+import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';
 import CheckoutContainer from './containers/CheckoutContainer';
 import React from 'react';
@@ -44,6 +45,11 @@ const routes = [
         path : '/checkout',
         exact : false,
         main : () => <CheckoutContainer />
+    },
+    {
+        path : '/login',
+        exact : false,
+        main : () => <Login/>
     },
     {
         path : '',

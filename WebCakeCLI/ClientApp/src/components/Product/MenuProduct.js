@@ -17,7 +17,7 @@ class MenuProduct extends Component {
 		if (products.length > 0) {
 			list = products.map((product, index) => {
 				return (<Product
-					key={product.productId}
+					key={index}
 					product={product}
 				/>)
 			})
@@ -35,7 +35,7 @@ class MenuProduct extends Component {
 		var list = null;
 		if (categories.length > 0) {
 			list = categories.map((category, index) => {
-				return <button key={category.categoryId} onClick={() => this.getProducts(category.categoryId)} className="nav-item" activeClassName="active-menu">{category.categoryName}</button>
+				return <button key={category.categoryId} onClick={() => this.getProducts(category.categoryId)} className="nav-item" activeclassname="active-menu">{category.categoryName}</button>
 			})
 		}
 		return list;
@@ -90,6 +90,7 @@ class MenuProduct extends Component {
 				</div>
 				<QT />
 				<Footer />
+				<script src="js/animation.js"></script>
 			</div>
 		)
 	}

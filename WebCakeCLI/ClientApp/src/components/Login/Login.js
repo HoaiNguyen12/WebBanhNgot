@@ -24,6 +24,7 @@ class Login extends Component {
     }
 
     Login() {
+        console.log(this.state);
         this.props.fetchLogin(this.state);
     }
 
