@@ -12,7 +12,7 @@ namespace WebCakeAPI.Models
 
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillDetail> Bill_details { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<AddressUser> AddressUsers { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Users> Users { get; set; }
@@ -21,7 +21,7 @@ namespace WebCakeAPI.Models
         {
             modelBuilder.Entity<Bill>().ToTable("bill");
             modelBuilder.Entity<BillDetail>().ToTable("billDetail");
-            modelBuilder.Entity<Customer>().ToTable("customer");
+            modelBuilder.Entity<AddressUser>().ToTable("addressUser");
             modelBuilder.Entity<Photo>().ToTable("photo");
             modelBuilder.Entity<Product>().ToTable("product");
             modelBuilder.Entity<Users>().ToTable("users");

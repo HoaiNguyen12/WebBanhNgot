@@ -15,7 +15,7 @@ namespace WebCakeAPI.Models
         [Required]
         public int billId { get; set; }
 
-        public int? customerId { get; set; }
+        public int? userId { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? billDate { get; set; }
