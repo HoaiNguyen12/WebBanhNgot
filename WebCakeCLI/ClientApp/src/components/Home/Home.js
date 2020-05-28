@@ -39,8 +39,6 @@ class Home extends Component {
         <script src="js/baguetteBox.min.js"></script>
         <script src="js/form-validator.min.js"></script>
         <script src="js/contact-form-script.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="js/animation.js"></script>
       </div>
     );
   }

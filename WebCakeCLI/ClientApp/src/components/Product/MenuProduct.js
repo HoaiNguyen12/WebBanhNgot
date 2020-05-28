@@ -18,6 +18,7 @@ class MenuProduct extends Component {
 			list = products.map((product, index) => {
 				return (<Product
 					key={index}
+					keyId={index}
 					product={product}
 				/>)
 			})

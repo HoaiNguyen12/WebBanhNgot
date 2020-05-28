@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends Component {
-
+	constructor(props) {
+		super(props);
+	}
 	render() {
+		this.props.cartUpdated();
+		let total = this.props.total.total;
 		return (
 			<header className="top-navbar">
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,7 +27,7 @@ class Header extends Component {
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact">Contact</NavLink></li>
 								<li className="nav-item">
 									<NavLink className="nav-link" activeclassname="active" to="/cart">
-										<i className="fa fa-shopping-cart fa-1x" >{this.props.total.total}</i> Shopping Cart
+										<i className="fa fa-shopping-cart fa-1x" >{total}</i> Shopping Cart
 									</NavLink>
 								</li>
 							</ul>
@@ -38,7 +42,8 @@ class Header extends Component {
 
 var mapStateToProps = state => {
 	return {
-		total: state.cart
+		total: state.cart,
+		cartUpdated: () => { return true }
 	}
 }
 

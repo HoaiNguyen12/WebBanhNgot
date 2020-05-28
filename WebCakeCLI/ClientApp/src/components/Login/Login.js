@@ -25,7 +25,10 @@ class Login extends Component {
 
     Login() {
         console.log(this.state);
-        this.props.fetchLogin(this.state);
+        const data = new FormData();
+        data.append('userName', this.state.username);
+        data.append('password', this.state.password);
+        this.props.fetchLogin(data);
     }
 
     render() {
