@@ -9,6 +9,7 @@ import NotFound from './components/NotFound/NotFound';
 import CheckoutContainer from './containers/CheckoutContainer';
 import React from 'react';
 import CartContainer from './containers/CartContainer';
+import ProductList from './components/ProductAdmin/ProductList';
 
 const routes = [
     {
@@ -50,6 +51,11 @@ const routes = [
         path : '/login',
         exact : false,
         main : () => <Login/>
+    },
+    {
+        path: '/productList',
+        exact: false,
+        main: () => <ProductList />
     },
     {
         path : '',
