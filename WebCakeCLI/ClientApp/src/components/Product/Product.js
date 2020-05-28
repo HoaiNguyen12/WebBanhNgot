@@ -35,13 +35,15 @@ class Product extends Component {
     
 
 	render() {
-		var { product } = this.props;
 		return (
 			<div className="col-lg-4 col-md-6">
 				<div id="product" className="product" key={this.props.keyId}>
 					<div className="box button-group filter-button-group">
-						<i className="add-to-cart fa fa-plus" onClick={() => this.addToCart(this.props.product)} />
-						<p>$ { this.props.product.productPrice }</p>				</div>
+						<img src={"images/" + this.props.product.productImage} alt={this.props.product.pro} className="pro-image-front" key={this.props.keyId} />
+						<i className="add-to-cart" className="fa fa-plus" onClick={() => this.addToCart(this.props.product, this.props.keyId)} />
+						<h2>{this.props.product.productName}</h2>
+						<p>$ { this.props.product.productPrice }</p>
+				</div>
 			</div>
 			</div >
 		)
