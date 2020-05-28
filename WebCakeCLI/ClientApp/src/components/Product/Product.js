@@ -5,12 +5,8 @@ import { actAddToCart } from '../../actions/cart';
 class Product extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			total: 0
-		}
 	}
 	addToCart(product, index) {
-		console.log(index);
 		this.props.addToCart(product);
         let imgtodrag = document.getElementsByClassName('product')[index];
         let viewcart = document.getElementsByClassName('w3view-cart')[0];
