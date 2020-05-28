@@ -2,7 +2,7 @@ import * as types from './../contraints/index';
 
 var data = JSON.parse(localStorage.getItem('CART'));
 
-var initialState = data ? data : [];
+var initialState = data != null ? data : [];
 
 const cart = (state = initialState, action) => {
     var { product, quantity } = action;
@@ -18,7 +18,6 @@ const cart = (state = initialState, action) => {
                     quantity
                 });
             }
-            state.total++;
             localStorage.setItem('CART', JSON.stringify(state));
             return state;
         case types.DELETE_PRODUCT_IN_CART:
@@ -26,7 +25,6 @@ const cart = (state = initialState, action) => {
             if(index !== -1){
                 state.splice(index,1);
             };
-            state.total -= quantity;
             localStorage.setItem('CART',JSON.stringify(state));
             return state;
         case types.UPDATE_PRODUCT_IN_CART:
@@ -34,12 +32,10 @@ const cart = (state = initialState, action) => {
             if(index !== -1){
                 state[index].quantity = quantity;
             }
-            state.total += quantity;
             localStorage.setItem('CART', JSON.stringify(state));
             return state;
         case types.DELETE_CART:
             state.splice(state[0], state.length);
-            state.total = 0;
             localStorage.removeItem('CART');
             return state;
         default: return state;
