@@ -6,6 +6,7 @@ class Product extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	addToCart(product, index) {
 		this.props.addToCart(product);
         let imgtodrag = document.getElementsByClassName('product')[index];
