@@ -7570,8 +7570,8 @@ img {
 svg:not(:root) {
   overflow: hidden; }
 
-table {
-  border-collapse: collapse; }
+/*table {
+  border-collapse: collapse; }*/
 
 caption {
   padding-top: 18px 30px;
@@ -8431,7 +8431,7 @@ pre {
   .offset-xl-11 {
     margin-left: 91.66667%; } }
 
-.table {
+/*.table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
@@ -8589,7 +8589,7 @@ pre {
   .table-dark.table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(255, 255, 255, 0.05); }
   .table-dark.table-hover tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.075); }
+    background-color: rgba(255, 255, 255, 0.075); }*/
 
 @media (max-width: 575.98px) {
   .table-responsive-sm {
@@ -13682,7 +13682,6 @@ input:focus {
   background: #ffffff;
   font-family: "Poppins", sans-serif;
   padding: 0;
-  width: 255px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
