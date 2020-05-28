@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 
 class CartResult extends Component {
 
@@ -39,7 +38,7 @@ class CartResult extends Component {
         var total = 0;
         if (cart.length > 0) {
             for (var i = 0; i < cart.length; i++) {
-                total += cart[i].product.price * cart[i].quantity;
+                total += cart[i].product.productPrice * cart[i].quantity;
             }
         }
         return total;
