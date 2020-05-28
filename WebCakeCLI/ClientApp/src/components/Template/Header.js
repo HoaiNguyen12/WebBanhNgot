@@ -22,9 +22,9 @@ class Header extends Component {
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about">About</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact">Contact</NavLink></li>
 								<li className="nav-item">
-									<button className="w3view-cart" activeclassname="active" to="/cart">
+									<NavLink className="nav-link" activeclassname="active" to="/cart">
 										<i className="fa fa-shopping-cart fa-1x" >{this.props.total.total}</i> Shopping Cart
-									</button>
+									</NavLink>
 								</li>
 							</ul>
 						</div>

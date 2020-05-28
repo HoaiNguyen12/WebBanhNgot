@@ -31,14 +31,15 @@ class Product extends Component {
     
 
 	render() {
+		var { product } = this.props;
 		return (
             <div className="col-lg-4 col-md-6">
                 <div id="product" className="product">
 					<div className="box button-group filter-button-group">
-						<img src={"images/" + this.props.product.productImage} alt={this.props.product.pro} className="pro-image-front" />
-						<i className="add-to-cart" className="fa fa-plus" onClick={() => this.addToCart(this.props.product)} />
-						<h2>{this.props.product.productName}</h2>
-						<p>$ { this.props.product.productPrice }</p>
+						<img src={"images/" + product.productImage} alt={product.pro} className="pro-image-front" />
+						<i className="fa fa-plus add-to-cart" onClick={() => this.addToCart(product)} />
+						<h2>{product.productName}</h2>
+						<p>VNĐ { product.productPrice }</p>
 				</div>
 			</div>
 
