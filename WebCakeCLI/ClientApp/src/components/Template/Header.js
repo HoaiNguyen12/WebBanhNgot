@@ -6,9 +6,19 @@ class Header extends Component {
 	constructor(props) {
 		super(props);
 	}
+
+	showTotalQuantity = (cart) => {
+        var quantity = 0;
+        if (cart.length > 0) {
+            for (var i = 0; i < cart.length; i++) {
+                quantity += cart[i].quantity ;
+            }
+        }
+        return quantity;
+    }
 	render() {
 		this.props.cartUpdated();
-		let total = this.props.total.total;
+		var { cart } = this.props;
 		return (
 			<header className="top-navbar">
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,7 +37,10 @@ class Header extends Component {
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact">Contact</NavLink></li>
 								<li className="nav-item">
 									<NavLink className="nav-link" activeclassname="active" to="/cart">
-										<i className="fa fa-shopping-cart fa-1x" >{total}</i> Shopping Cart
+										<button className="w3view-cart">
+											<i className="fa fa-shopping-cart fa-1x" >{this.showTotalQuantity(cart)}</i> Shopping Cart
+										</button>
+										
 									</NavLink>
 								</li>
 							</ul>
@@ -42,7 +55,7 @@ class Header extends Component {
 
 var mapStateToProps = state => {
 	return {
-		total: state.cart,
+		cart: state.cart,
 		cartUpdated: () => { return true }
 	}
 }
