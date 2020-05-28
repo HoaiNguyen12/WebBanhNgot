@@ -7,6 +7,7 @@ import Contact from './../Home/Contact';
 class Cart extends Component {
 
     render() {
+       
         var { children} = this.props;
         return (
             <div>
@@ -26,6 +27,7 @@ class Cart extends Component {
                             <tr>
                                 <th></th>
                                 <th>Sản phẩm</th>
+                                <th>Hình ảnh</th>
                                 <th>Gía</th>
                                 <th>Số lượng</th>
                                 <th>Tổng cộng</th>

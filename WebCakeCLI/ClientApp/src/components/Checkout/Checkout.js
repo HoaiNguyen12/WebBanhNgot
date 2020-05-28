@@ -65,8 +65,8 @@ class Checkout extends Component {
 
     onSave = (e) => {
         e.preventDefault();
- //     console.log(this.props);
-        this.props.onPayment(this.props.payment, this.props.cart);
+         console.log(this.props);
+    //    this.props.onPayment(this.props.payment, this.props.cart);
     }
 }
 

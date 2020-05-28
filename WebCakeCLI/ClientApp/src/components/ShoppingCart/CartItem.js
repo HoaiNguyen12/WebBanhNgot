@@ -3,15 +3,22 @@ import React, { Component } from 'react';
 class CartItem extends Component {
 
     render() {
+        this.props.cartUpdated();
         var { item} = this.props;
-        var { quantity} = item;
         return (
             <tr>
                 <td></td>
-                <td style={{marginTop:'25px'}}>{ item.product.name }</td>
-                <td>{ item.product.price}VNĐ</td>
+                <td style={{marginTop:'25px'}}>{ item.product.productName }</td>
+                <td >
+                    <img src={"images/" + item.product.productImage} 
+                         alt={item.product.pro} 
+                         className="pro-image-front" 
+                         style={{width:'70px',height:'70px'}}
+                    />
+                </td>
+                <td>{ item.product.productPrice}VNĐ</td>
                 <td className="center-on-small-only">
-                    <span className="qty">{quantity} </span>
+                    <span className="qty">{item.quantity} </span>
                     <div className="btn-group radio-group" data-toggle="buttons" >
                         <label  onClick={() => this.onUpdateQuantity(item.product, item.quantity - 1)}
                             className="btn btn-sm">
@@ -23,7 +30,7 @@ class CartItem extends Component {
                         </label>
                     </div>
                 </td>
-                <td>{ this.showSubTotal(item.product.price, item.quantity) }VNĐ</td>
+                <td>{ this.showSubTotal(item.product.productPrice, item.quantity) }VNĐ</td>
                 <td>
                     <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
                         title="" data-original-title="Remove item" onClick= { () => this.onDelete(item.product)} >

@@ -18,12 +18,8 @@ class CartContainer extends Component {
         );
     }
 
-    componentDidMount(){
-        
-    }
-
     showCartItem = (cart) => {
-        var { onDeleteProductInCart, onUpdateProductInCart } = this.props;
+        var { onDeleteProductInCart, onUpdateProductInCart, cartUpdated } = this.props;
         var result = <tr>
             <td>{Message.MSG_CART_EMPTY}</td>
         </tr>;
@@ -36,6 +32,7 @@ class CartContainer extends Component {
                         index={index}
                         onDeleteProductInCart={onDeleteProductInCart}
                         onUpdateProductInCart={onUpdateProductInCart}
+                        cartUpdated={cartUpdated}
                     />    
                 )
             })
@@ -54,7 +51,8 @@ class CartContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart
+        cart: state.cart,
+        cartUpdated: () => { return true }
     }
 }
 
