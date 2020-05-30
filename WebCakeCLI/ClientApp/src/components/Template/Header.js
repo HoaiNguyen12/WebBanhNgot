@@ -29,20 +29,22 @@ class Header extends Component {
 						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div className="collapse navbar-collapse" id="navbars-rs-food">
-							<ul className="navbar-nav ml-auto">
-								<li className="nav-item" ><NavLink className="nav-link" exact activeClassName="active" to="/">Home</NavLink></li>
-								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/menu">Menu</NavLink></li>
-								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about">About</NavLink></li>
-								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact">Contact</NavLink></li>
+						<div className="collapse navbar-collapse" id="navbars-rs-food" >
+							<ul className="navbar-nav ml-auto" > 
+								<li className="nav-item" ><NavLink className="nav-link" exact activeClassName="active" to="/" >Home</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/menu" >Menu</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about" >About</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact" >Contact</NavLink></li>
 								<li className="nav-item">
-									<NavLink className="nav-link" activeclassname="active" to="/cart">
+									<NavLink className="nav-link" activeclassname="active" to="/cart" >
 										<button className="w3view-cart">
 											<i className="fa fa-shopping-cart fa-1x" >{this.showTotalQuantity(cart)}</i> Shopping Cart
 										</button>
 										
 									</NavLink>
 								</li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/login" >Đăng nhập</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/registration" >Đăng ký</NavLink></li>
 							</ul>
 						</div>
 					</div>
