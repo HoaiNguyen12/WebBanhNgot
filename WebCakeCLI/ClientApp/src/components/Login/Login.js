@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { actFetchLoginRequest } from '../../actions/login';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 class Login extends Component {
@@ -34,12 +35,13 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="container-scroller">
+                <div className="container-scroller mt-5" style={{fontSize:'18px'}}>
                     <div className="container-fluid page-body-wrapper full-page-wrapper auth-page">
                         <div className="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
                             <div className="row w-100">
                                 <div className="col-lg-4 mx-auto">
                                     <div className="auto-form-wrapper">
+                                        <h1 style={{textAlign: 'center' }}>ĐĂNG NHẬP</h1>
                                         <form action="#">
                                             <div className="form-group">
                                                 <label className="label">Username</label>
@@ -64,38 +66,28 @@ class Login extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-primary submit-btn btn-block" onClick={() => this.Login()}>Login</button>
+                                                <button className="btn btn-secondary submit-btn btn-block" onClick={() => this.Login()}>Đăng nhập</button>
                                             </div>
-                                            <div className="form-group d-flex justify-content-between">
-                                                <div className="form-check form-check-flat mt-0">
-                                                    <label className="form-check-label">
-                                                        <input type="checkbox" className="form-check-input" label="Keep me signed in"></input>
-                                                    </label>
-                                                </div>
-                                                <a href="#" className="text-small forgot-password text-black">Forgot Password</a>
+                                            <div className="form-check-inline mb-2">
+                                                <label className="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" value="" />Forgot password
+                                                </label>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-block g-login">
+                                                <button className="btn btn-danger g-login w-100">
                                                     <img className="mr-3" src="../../images/file-icons/icon-google.svg" alt="" />Log in with Google</button>
                                             </div>
-                                            <div className="text-block text-center my-3">
+                                            <div className="form-group">
+                                                <button className="btn btn-primary g-login w-100">
+                                                    <img className="mr-3" src="../../images/file-icons/icon-google.svg" alt="" />Log in with Facebook</button>
+                                            </div>
+                                            <div className="text-block text-center my-3" >
                                                 <span className="text-small font-weight-semibold">Not a member ?</span>
-                                                <a href="register.html" className="text-black text-small">Create new account</a>
+                                                <Link href="register.html" className="text-black text-small" to="/registration">Create new account</Link>
                                             </div>
                                         </form>
                                     </div>
-                                    <ul className="auth-footer">
-                                        <li>
-                                            <a href="#">Conditions</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Help</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Terms</a>
-                                        </li>
-                                    </ul>
-                                    <p className="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
+                                    
                                 </div>
                             </div>
                         </div>
