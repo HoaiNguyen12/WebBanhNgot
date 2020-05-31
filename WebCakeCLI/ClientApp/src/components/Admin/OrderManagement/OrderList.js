@@ -2,7 +2,6 @@
 import NavabarAdmin from './../NavbarAdmin';
 import LeftAdmin from './../LeftAdmin';
 
-
 import { Link } from 'react-router-dom';
 class OrderList extends Component {
     render(){
