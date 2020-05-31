@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
  
-class OderForm extends Component {
+class OrderForm extends Component {
     render(){
         return(
             <div className="container p-5">
@@ -24,4 +24,4 @@ class OderForm extends Component {
     }
 }
 
-export default OderForm;
+export default OrderForm;
