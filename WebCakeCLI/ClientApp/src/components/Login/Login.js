@@ -35,7 +35,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="container-scroller mt-5" style={{fontSize:'18px'}}>
+                <div className="container-scroller mt-5" style={{fontSize:'13px'}}>
                     <div className="container-fluid page-body-wrapper full-page-wrapper auth-page">
                         <div className="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
                             <div className="row w-100">
@@ -74,11 +74,11 @@ class Login extends Component {
                                                 </label>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-danger g-login w-100">
+                                                <button className="btn btn-link g-login w-100">
                                                     <img className="mr-3" src="../../images/file-icons/icon-google.svg" alt="" />Log in with Google</button>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-primary g-login w-100">
+                                                <button className="btn btn-link g-login w-100">
                                                     <img className="mr-3" src="../../images/file-icons/icon-google.svg" alt="" />Log in with Facebook</button>
                                             </div>
                                             <div className="text-block text-center my-3" >

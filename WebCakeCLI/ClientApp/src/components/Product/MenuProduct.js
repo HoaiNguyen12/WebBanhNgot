@@ -42,7 +42,7 @@ class MenuProduct extends Component {
 		return list;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.fetchProduct(0);
 		this.props.fetchCategory();
 	}
