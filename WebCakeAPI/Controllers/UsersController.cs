@@ -54,6 +54,14 @@ namespace WebCakeAPI.Controllers
 
             return users;
         }
+        [HttpPost("/registration")]
+        public async Task<ActionResult<Users>> UserRegistration(Users user)
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("RegistrationUsers", new { id = user.userId }, user);
+        }
 
         // PUT: api/Users/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
