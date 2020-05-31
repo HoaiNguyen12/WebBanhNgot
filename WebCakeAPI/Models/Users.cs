@@ -20,5 +20,7 @@ namespace WebCakeAPI.Models
         public int isAdmin { get; set; }
         [StringLength(15)]
         public string password { get; set; }
+        [StringLength(100)]
+        public string address { get; set; }
     }
 }
