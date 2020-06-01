@@ -26,7 +26,7 @@ namespace WebCakeAPI.Controllers
         {
             return await _context.Users.ToListAsync();
         }
-
+         
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Users>> GetUsers(int id)
@@ -42,7 +42,7 @@ namespace WebCakeAPI.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet("checkUser")]
+        [HttpPost("checkUser")]
         public async Task<ActionResult<Users>> GetUserLogin(Users user)
         {
             var users = _context.Users.Where(x => x.userName == user.userName && x.password == user.password).FirstOrDefault();
