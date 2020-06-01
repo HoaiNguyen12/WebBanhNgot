@@ -33,7 +33,7 @@ class Login extends Component {
     }
 
     render() {
-        return (
+        return ( 
             <div>
                 <div className="container-scroller" style={{fontSize:'13px'}}>
                     <div className="container-fluid page-body-wrapper full-page-wrapper auth-page">
