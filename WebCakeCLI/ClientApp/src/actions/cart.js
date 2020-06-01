@@ -7,7 +7,7 @@ export const actAddToCart = (product, quantity) => {
         product,
         quantity
     }
-}
+} 
 
 export const actDeleteProductInCart = (product) => {
     return {
