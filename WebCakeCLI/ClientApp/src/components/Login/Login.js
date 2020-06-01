@@ -21,15 +21,21 @@ class Login extends Component {
         this.setState({ 
             [name]: value
         })
-        console.log(this.state);
     }
 
-    Login() {
+    Login = (e) => {
         console.log(this.state);
-        const data = new FormData();
+        e.preventDefault();
+        var { username, password } = this.state;
+        /*const data = new FormData();
         data.append('userName', this.state.username);
         data.append('password', this.state.password);
-        this.props.fetchLogin(data);
+        this.props.fetchLogin(data);*/
+        var user = {
+            username: username,
+            password: password
+        };
+        this.props.fetchLogin(user);
     }
 
     render() {
@@ -41,8 +47,8 @@ class Login extends Component {
                             <div className="row w-100">
                                 <div className="col-lg-4 mx-auto">
                                     <div className="auto-form-wrapper">
-                                        <h1 style={{textAlign: 'center' }}>ĐĂNG NHẬP</h1>
-                                        <form action="#">
+                                        <h1 style={{ textAlign: 'center' }}>ĐĂNG NHẬP</h1>
+                                        <form onSubmit={this.Login}>
                                             <div className="form-group">
                                                 <label className="label">Username</label>
                                                 <div className="input-group">
@@ -66,7 +72,7 @@ class Login extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-secondary submit-btn btn-block" onClick={() => this.Login()}>Đăng nhập</button>
+                                                <button className="btn btn-secondary submit-btn btn-block" >Đăng nhập</button>
                                             </div>
                                             <div className="form-check-inline mb-2">
                                                 <label className="form-check-label">
