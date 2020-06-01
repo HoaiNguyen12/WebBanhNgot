@@ -22,9 +22,7 @@ class Login extends Component {
             [name]: value
         })
     }
-
     Login = (e) => {
-        console.log(this.state);
         e.preventDefault();
         var { username, password } = this.state;
         /*const data = new FormData();
@@ -35,8 +33,7 @@ class Login extends Component {
             username: username,
             password: password
         };
-        this.props.fetchLogin(user);
-    }
+        this.props.fetchLogin(user);    }
 
     render() {
         return ( 

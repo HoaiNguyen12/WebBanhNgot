@@ -1,5 +1,6 @@
 import * as types from '../contraints/index';
-var initState = []
+var user = localStorage.getItem("user");
+var initState = user != null ? user : {};
     //userId: 0,
     //userName: "",
     //password: "",
@@ -11,9 +12,10 @@ const login = (state = initState, action) => {
     switch (action.type) {
         case types.LOGIN:
             state = action.user;
-            return [...state];
+            localStorage.setItem("user", action.user);
+            return state;
         default:
-            return [...state];
+            return state;
     }
 }
 
