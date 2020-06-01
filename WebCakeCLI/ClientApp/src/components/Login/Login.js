@@ -33,7 +33,8 @@ class Login extends Component {
             username: username,
             password: password
         };
-        this.props.fetchLogin(user);    }
+        this.props.fetchLogin(user);
+    }
 
     render() {
         return ( 
@@ -49,7 +50,7 @@ class Login extends Component {
                                             <div className="form-group">
                                                 <label className="label">Username</label>
                                                 <div className="input-group">
-                                                    <input type="text" className="form-control" name="username" placeholder="username" onChange={this.onHandleChange} />
+                                                    <input type="text" className="form-control" name="username" placeholder="username" onChange={this.onHandleChange} value={this.state.username} />
                                                     <div className="input-group-append">
                                                         <span className="input-group-text">
                                                             <i className="mdi mdi-check-circle-outline"></i>
@@ -60,7 +61,7 @@ class Login extends Component {
                                             <div className="form-group">
                                                 <label className="label">Password</label>
                                                 <div className="input-group">
-                                                    <input type="password" className="form-control" name="password" onChange={this.onHandleChange} placeholder="*********" />
+                                                    <input type="password" className="form-control" name="password" onChange={this.onHandleChange} placeholder="*********" value={this.state.password} />
                                                     <div className="input-group-append">
                                                         <span className="input-group-text">
                                                             <i className="mdi mdi-check-circle-outline"></i>
