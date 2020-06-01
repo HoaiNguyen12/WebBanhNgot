@@ -16,7 +16,7 @@ namespace WebCakeAPI.Controllers
         private readonly WebBanhNgotContext _context;
 
         public BillDetailsController(WebBanhNgotContext context)
-        {
+        { 
             _context = context;
         }
 
@@ -44,7 +44,7 @@ namespace WebCakeAPI.Controllers
         // PUT: api/BillDetails/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
+       /* [HttpPut("{id}")]
         public async Task<IActionResult> PutBillDetail(int id, BillDetail billDetail)
         {
             if (id != billDetail.billDetailId)
@@ -71,19 +71,19 @@ namespace WebCakeAPI.Controllers
             }
 
             return NoContent();
-        }
+        }*/
 
         // POST: api/BillDetails
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
+       /* [HttpPost]
         public async Task<ActionResult<BillDetail>> PostBillDetail(BillDetail billDetail)
         {
             _context.Bill_details.Add(billDetail);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBillDetail", new { id = billDetail.billDetailId }, billDetail);
-        }
+        }*/
 
         // DELETE: api/BillDetails/5
         [HttpDelete("{id}")]
@@ -101,9 +101,9 @@ namespace WebCakeAPI.Controllers
             return billDetail;
         }
 
-        private bool BillDetailExists(int id)
+      /*  private bool BillDetailExists(int id)
         {
             return _context.Bill_details.Any(e => e.billDetailId == id);
-        }
+        }*/
     }
 }

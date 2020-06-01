@@ -54,13 +54,14 @@ namespace WebCakeAPI.Controllers
 
             return users;
         }
-        [HttpPost("/registration")]
+        [HttpPost("registration")]
         public async Task<ActionResult<Users>> UserRegistration(Users user)
         {
+            user.isAdmin = 0;
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("RegistrationUsers", new { id = user.userId }, user);
+            return CreatedAtAction("GetUsers", new { id = user.userId }, user);
         }
 
         // PUT: api/Users/5
