@@ -12,7 +12,7 @@ const login = (state = initState, action) => {
     switch (action.type) {
         case types.LOGIN:
             state = action.user;
-            localStorage.setItem("user", action.user);
+            localStorage.setItem("user", JSON.stringify(state));
             return state;
         case types.REGISTRATION:
             state.push(action.user);
