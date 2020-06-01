@@ -20,7 +20,7 @@ namespace WebCakeAPI.Models
         {
             modelBuilder.Entity<Bill>().ToTable("bill");
             modelBuilder.Entity<BillDetail>().ToTable("billDetail")
-                .HasKey(c => new { c.billId, c.productId });
+                .HasKey(c => new { c.billId, c.productId }); 
             modelBuilder.Entity<Photo>().ToTable("photo");
             modelBuilder.Entity<Product>().ToTable("product");
             modelBuilder.Entity<Users>().ToTable("users");

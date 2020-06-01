@@ -21,10 +21,6 @@ namespace WebCakeAPI.Models
         public int? quantity { get; set; }
 
         public decimal? price { get; set; }
-        //[ForeignKey("billId")]
-        //public virtual Bill bill { get; set; }
-        //[ForeignKey("productId")]
-        //public virtual Product product { get; set; }
-
+       
     }
 }
