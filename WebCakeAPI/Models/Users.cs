@@ -21,6 +21,6 @@ namespace WebCakeAPI.Models
         [StringLength(15)]
         public string password { get; set; }
         [StringLength(100)]
-        public string address { get; set; }
+        public string userAddress { get; set; }
     }
 }
