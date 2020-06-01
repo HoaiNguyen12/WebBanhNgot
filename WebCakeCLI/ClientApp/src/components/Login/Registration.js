@@ -24,7 +24,7 @@ class Registration extends Component {
         this.setState({
             [name]: value
         });
-    } 
+    }  
 
     onSubmit = (e) => {
         e.preventDefault();
