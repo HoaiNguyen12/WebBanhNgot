@@ -14,7 +14,7 @@ class Registration extends Component {
     render() {
         return (
             <div>
-                <div className="container-scroller mt-5" style={{fontSize:'18px'}}>
+                <div className="container-scroller" style={{fontSize:'13px'}}>
                     <div className="container-fluid page-body-wrapper full-page-wrapper auth-page">
                         <div className="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
                             <div className="row w-100">
