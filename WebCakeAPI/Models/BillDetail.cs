@@ -9,12 +9,13 @@ namespace WebCakeAPI.Models
     public class BillDetail
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
-        public int billDetailId { get; set; }
-
+        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int? billId { get; set; }
 
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int? productId { get; set; }
 
         public int? quantity { get; set; }
