@@ -7,7 +7,7 @@ export const actAddToCart = (product, quantity) => {
         product,
         quantity
     }
-}
+} 
 
 export const actDeleteProductInCart = (product) => {
     return {
@@ -26,7 +26,7 @@ export const actUpdateProductInCart = (product,quantity) => {
 
 export const actPaymentRequest = (payment,cart) => {
     return (dispatch) => {
-        return callApi('payments','POST', {
+        return callApi('checkout','POST', {
            payment,
            cart
         }).then(res => {
