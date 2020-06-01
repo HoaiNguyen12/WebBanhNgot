@@ -77,7 +77,7 @@ class Login extends Component {
                                             <div className="form-check-inline mb-2">
                                                 <label className="form-check-label">
                                                     <input type="checkbox" className="form-check-input" value="" />Forgot password
-                                                </label>
+                                                </label> 
                                             </div>
                                             <div className="form-group">
                                                 <button className="btn btn-link g-login w-100">
