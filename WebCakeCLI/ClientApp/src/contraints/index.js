@@ -1,5 +1,6 @@
 export const GET_ALL_PRODUCT = 'GET_ALL_PRODUCT';
 export const LOGIN = 'LOGIN';
+export const REGISTRATION = 'REGISTRATION';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';
 export const FETCH_CATEGORY = 'FETCH_CATEGORY';
 export const ADD_TO_CART = 'ADD_TO_CART';
