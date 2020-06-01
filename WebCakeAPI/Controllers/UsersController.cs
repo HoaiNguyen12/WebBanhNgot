@@ -42,7 +42,7 @@ namespace WebCakeAPI.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet("/checkUser")]
+        [HttpGet("checkUser")]
         public async Task<ActionResult<Users>> GetUserLogin(Users user)
         {
             var users = _context.Users.Where(x => x.userName == user.userName && x.password == user.password).FirstOrDefault();
