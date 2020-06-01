@@ -26,7 +26,6 @@ class Registration extends Component {
         });
     }
 
-
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);

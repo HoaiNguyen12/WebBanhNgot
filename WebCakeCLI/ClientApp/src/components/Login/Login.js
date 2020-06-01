@@ -70,7 +70,7 @@ class Login extends Component {
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> 
                                             <div className="form-group">
                                                 <button className="btn btn-secondary submit-btn btn-block" >Đăng nhập</button>
                                             </div>
