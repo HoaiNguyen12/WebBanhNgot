@@ -1,5 +1,5 @@
 import * as types from '../contraints/index';
-var user = localStorage.getItem("user");
+var user = JSON.parse(localStorage.getItem("user"));
 var initState = user != null ? user : {};
     //userId: 0,
     //userName: "",

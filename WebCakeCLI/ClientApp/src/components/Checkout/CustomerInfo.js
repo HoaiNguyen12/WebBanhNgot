@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 
 class CustomerInfo extends Component {
@@ -6,27 +7,37 @@ class CustomerInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
-            name: '',
-            phone: '',
-            address: '',
-            note:'',
-            pay:''
+            fullName: '',
+            userPhone: '',
+            userAddress: '',
+            note: '',
+            pay: ''
         };
     }
     
     onChange = (e) => {
+        console.log(e.target);
         var target = e.target;
         var name = target.name; //txtName, txtPhone
-        var value = target.value; //giá trị tại txtName, txtPhone
+        var value = target.value;
         this.setState({
             [name]: value
         });
         this.props.onHandleChange(this.state);   
     }
-
+    componentWillMount() {
+        if (this.props.login) {
+            this.setState({
+                fullName: this.props.login.fullName,
+                userPhone: this.props.login.userPhone,
+                userAddress: this.props.login.userAddress
+            });
+        }
+    }
     render() {
-        var { name, phone, address, note, pay} = this.state;
+        var { note, pay } = this.state;
+        console.log(this.state);
+        var { fullName, userPhone, userAddress } = this.props.login;
         return (
             <div className="col-md-7 order-md-1"  >
                 <h2 className="mb-3">Địa chỉ nhận hàng</h2>
@@ -34,7 +45,7 @@ class CustomerInfo extends Component {
                      <div className="mb-3">
                         <label htmlFor="name">Họ tên*
                         </label>
-                        <input type="text" className="form-control" name="name" value={name} onChange={ this.onChange } required />
+                        <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange} required />
                         <div className="invalid-feedback">
                              Please enter your orderee name.
                         </div>
@@ -42,7 +53,7 @@ class CustomerInfo extends Component {
                     <div className="mb-3">
                         <label htmlFor="phone">Số điện thoại*
                         </label>
-                        <input type="text" className="form-control" name="phone" value={phone} onChange={this.onChange} required />
+                        <input type="text" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange} required />
                         <div className="invalid-feedback">
                             Please enter your orderee phone.
                         </div>
@@ -50,7 +61,7 @@ class CustomerInfo extends Component {
 
                     <div className="mb-3">
                         <label htmlFor="address">Địa chỉ*</label>
-                        <input type="text" className="form-control" name="address" value={address} onChange={this.onChange} required />
+                        <input type="text" className="form-control" name="userAddress" value={userAddress} onChange={this.onChange} required />
                         <div className="invalid-feedback">
                             Please enter your shipping address.
                         </div>
@@ -65,11 +76,11 @@ class CustomerInfo extends Component {
                     <h2 className="mb-3">Hình thức thanh toán</h2>
                     <div className="d-block my-3">
                         <div className="custom-control custom-radio">
-                            <input id="COD" name="pay" type="radio" className="custom-control-input" value={pay} onChange={this.onChange} defaultChecked required />
+                            <input id="COD" name="pay" type="radio" className="custom-control-input" value='Thanh toán khi nhận hàng' onChange={this.onChange} defaultChecked required />
                             <label className="custom-control-label" htmlFor="COD">Thanh toán khi nhận hàng</label>
                         </div>
                         <div className="custom-control custom-radio">
-                            <input id="tranfer" name="pay" type="radio" className="custom-control-input" value={pay} onChange={this.onChange} required />
+                            <input id="tranfer" name="pay" type="radio" className="custom-control-input" value='Chuyển khoản' onChange={this.onChange} required />
                             <label className="custom-control-label" htmlFor="tranfer">Chuyển khoản</label>
                         </div>
                     </div>
@@ -82,4 +93,10 @@ class CustomerInfo extends Component {
    
 }
 
-export default CustomerInfo;
+var mapStateToProps = state => {
+    return {
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps,null)(CustomerInfo);
