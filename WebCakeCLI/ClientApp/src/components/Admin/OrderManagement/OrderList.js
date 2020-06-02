@@ -1,10 +1,19 @@
 ﻿import React, { Component } from 'react';
 import NavabarAdmin from './../NavbarAdmin';
 import LeftAdmin from './../LeftAdmin';
- 
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { actFetchBillsRequest } from './../../../actions/bill';
+import Bill from './Bill';
+
 class OrderList extends Component {
-    render(){
+
+    componentDidMount() {
+        this.props.fetchBill();
+    }
+
+    render() {
+        console.log(this.props);
+        var { bills } = this.props;
         return(
             <div>
                 <NavabarAdmin />
@@ -26,22 +35,11 @@ class OrderList extends Component {
                                             <th>Hình thức thanh toán</th>
                                             <th>Ghi chú</th>
                                             <th>Trạng thái</th>
-                                            <th>Sửa</th>
-                                            <th>Xóa</th>
+                                            <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><Link to="#"><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link></td>
-                                            <td><i className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
-                                        </tr>
+                                        {this.showBills(bills)}
                                         
                                     </tbody>
                                 </table>
@@ -52,6 +50,35 @@ class OrderList extends Component {
             </div>
         )
     }
+
+    showBills(bills) {
+        var list = null;
+        if (bills.length > 0) {
+            list = bills.map((bill, index) => {
+                return (<Bill
+                    key={index}
+                    stt={index}
+                    bill={bill}
+                />)
+            })
+        }
+        return list;
+    }
 }
 
-export default OrderList;
+
+var mapStateToProps = state => {
+    return {
+        bills: state.bills
+    }
+}
+
+var mapDispathToProps = (dispatch, props) => {
+    return {
+        fetchBill: () => {
+            dispatch(actFetchBillsRequest());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(OrderList);

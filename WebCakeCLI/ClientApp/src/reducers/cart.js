@@ -38,6 +38,10 @@ const cart = (state = initialState, action) => {
             state.splice(state[0], state.length);
             localStorage.removeItem('CART');
             return state;
+        case types.PAYMENT_CART:
+            state.splice(state[0], state.length);
+            localStorage.removeItem('CART');
+            return state;
         default: return state;
     }
 }

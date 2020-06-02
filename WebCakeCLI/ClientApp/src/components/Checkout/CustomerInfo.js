@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { actPaymentRequest } from './../../actions/cart';
 
 class CustomerInfo extends Component {
 
@@ -16,7 +16,6 @@ class CustomerInfo extends Component {
     }
     
     onChange = (e) => {
-        console.log(e.target);
         var target = e.target;
         var name = target.name; //txtName, txtPhone
         var value = target.value;
@@ -36,7 +35,6 @@ class CustomerInfo extends Component {
     }
     render() {
         var { note, pay } = this.state;
-        console.log(this.state);
         var { fullName, userPhone, userAddress } = this.props.login;
         return (
             <div className="col-md-7 order-md-1"  >
@@ -99,4 +97,4 @@ var mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,null)(CustomerInfo);
+export default connect(mapStateToProps, null)(CustomerInfo);
