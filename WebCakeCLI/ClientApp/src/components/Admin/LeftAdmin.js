@@ -8,7 +8,7 @@ class LeftAdmin extends Component {
                 <Link className="list-group-item" to="/admin/userList">Quản lý người dùng</Link>
                 <Link className="list-group-item" to="/admin/productList">Quản lý sản phẩm</Link>
                 <Link className="list-group-item" to="/admin/categoryList">Quản lý loại sản phẩm</Link>
-                <Link className="list-group-item" to="/admin/billList">Quản lý đơn hàng</Link>
+                <Link className="list-group-item" to="/admin/orderList">Quản lý đơn hàng</Link>
             </div>
                        
         )

@@ -11,3 +11,5 @@ export const PAYMENT_CART = 'PAYMENT_CART';
 export const DELETE_CART = 'DELETE_CART';
 export const QUANTITY_CART = 'QUANTITY_CART';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const FETCH_BILL = 'FETCH_BILL';
+export const UPDATE_STATUS_BILL = 'UPDATE_STATUS_BILL';

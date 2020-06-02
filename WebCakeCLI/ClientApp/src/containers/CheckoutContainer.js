@@ -10,16 +10,15 @@ class CheckoutContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
-            name: '',
-            phone: '',
-            address: '',
+            fullName: '',
+            userPhone: '',
+            userAddress: '',
             note: '',
             pay: ''
         };
     }
 
-    render(){
+    render() {
        var { cart, onPayment } = this.props;
         return (
             <Checkout onPayment={onPayment} cart={cart} payment={ this.state}>
@@ -31,10 +30,9 @@ class CheckoutContainer extends Component {
     
     handleChange = (data) => {
         this.setState({
-            id: data.id,
-            name: data.name,
-            phone: data.phone,
-            address: data.address,
+            fullName: this.props.login.fullName,
+            userPhone: this.props.login.userPhone,
+            userAddress: this.props.login.userAddress,
             note: data.note,
             pay: data.pay
        });
@@ -43,7 +41,7 @@ class CheckoutContainer extends Component {
 
     showCustomerInfo = () => { 
         return (
-            <CustomerInfo onHandleChange={this.handleChange}/>
+            <CustomerInfo onHandleChange={this.handleChange} login={this.props.login}/>
         )
     }
     showCartItem = (cart) => {
@@ -75,15 +73,16 @@ class CheckoutContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart
+        cart: state.cart,
+        login: state.login
         
     }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        onPayment: (payment,cart) => {
-            dispatch(actPaymentRequest(payment, cart));
+        onPayment: (payment) => {
+            dispatch(actPaymentRequest(payment));
         }
     }
 }

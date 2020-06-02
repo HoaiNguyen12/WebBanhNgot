@@ -4,9 +4,6 @@ import Footer from './../Template/Footer';
 import Contact from '../Home/Contact';
 
 class Checkout extends Component {
-
-   
-
     render() {
         var { children, cart } = this.props;
         return (
@@ -57,7 +54,7 @@ class Checkout extends Component {
         var total = 0;
         if (cart.length > 0) {
             for (var i = 0; i < cart.length; i++) {
-                total += cart[i].product.price * cart[i].quantity;
+                total += cart[i].product.productPrice * cart[i].quantity;
             }
         }
         return total;
@@ -65,8 +62,15 @@ class Checkout extends Component {
 
     onSave = (e) => {
         e.preventDefault();
-         console.log(this.props);
-    //    this.props.onPayment(this.props.payment, this.props.cart);
+        var payment = {
+            fullName: this.props.payment.fullName,
+            userPhone: this.props.payment.userPhone,
+            userAddress: this.props.payment.userAddress,
+            note: this.props.payment.note,
+            pay: this.props.payment.pay,
+            cart: this.props.cart
+        };
+        this.props.onPayment(payment);
     }
 }
 

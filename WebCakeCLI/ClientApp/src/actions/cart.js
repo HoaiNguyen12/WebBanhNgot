@@ -24,20 +24,19 @@ export const actUpdateProductInCart = (product,quantity) => {
     }
 }
 
-export const actPaymentRequest = (payment,cart) => {
+export const actPaymentRequest = (payment) => {
+    debugger;
     return (dispatch) => {
         return callApi('checkout','POST', {
-           payment,
-           cart
+           payment
         }).then(res => {
-            dispatch(actPayment(res.data.payment, res.data.cart));
+            dispatch(actPayment(res.data));
         });
     };
 }
-export const actPayment = (payment,cart) => {
+export const actPayment = (payment) => {
     return {
         type: types.PAYMENT_CART,
-        payment,
-        cart
+        payment
     }
 }
