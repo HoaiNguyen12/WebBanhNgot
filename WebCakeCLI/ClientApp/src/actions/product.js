@@ -18,3 +18,21 @@ export const actFetchProductCategory = (products) => {
     }
 }
 
+
+
+export const actFetchDeleteProductRequest = (id) => {
+    return (dispatch) => {
+        return callApi("products/" + id, "DELETE", null).then(res => {
+            console.log(id);
+            dispatch(actFetchDeleteProduct(id))
+        });
+    }
+}
+
+export const actFetchDeleteProduct = (id) => {
+    return {
+        type: types.DELETE_PRODUCT,
+        productID: id
+    }
+}
+
