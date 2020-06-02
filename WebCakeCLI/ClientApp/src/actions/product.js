@@ -18,12 +18,9 @@ export const actFetchProductCategory = (products) => {
     }
 }
 
-
-
 export const actFetchDeleteProductRequest = (id) => {
     return (dispatch) => {
         return callApi("products/" + id, "DELETE", null).then(res => {
-            console.log(id);
             dispatch(actFetchDeleteProduct(id))
         });
     }
@@ -36,3 +33,19 @@ export const actFetchDeleteProduct = (id) => {
     }
 }
 
+
+export const actFetchProductRequest = (id) => {
+    return (dispatch) => {
+        return callApi("products/" + id, "GET", null).then(res => {
+            console.log(id);
+            dispatch(actFetchProduct(res.data))
+        });
+    }
+}
+
+export const actFetchProduct = (product) => {
+    return {
+        type: types.DETAIL_PRODUCT,
+        product: product
+    }
+}

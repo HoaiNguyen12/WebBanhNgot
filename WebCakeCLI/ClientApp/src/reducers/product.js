@@ -16,6 +16,14 @@ const product = (state = initState, action) => {
                 state.splice(index, 1);
             }
             return [...state];
+        case types.DELETE_PRODUCT:
+            var index = findProduct(state, action.productID);
+            if (index != -1) {
+                state.splice(index, 1);
+            }
+            return [...state];
+        case types.DETAIL_PRODUCT:
+            return action.product;
         default :
             return [...state]
     }

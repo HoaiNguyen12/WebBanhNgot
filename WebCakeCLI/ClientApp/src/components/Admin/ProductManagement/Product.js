@@ -43,13 +43,13 @@ class Product extends Component {
     render() {
         return (
             <tr>
-                <th className='col-lg-1' scope="row">{this.props.stt}</th>
-                <td className='col-lg-2'>{this.props.product.productName}</td>
-                <td className='col-lg-1'><img className="product-img" src={"images/" + this.props.product.productImage}/></td>
-                <td className='col-lg-2'>{this.props.product.productUnit}</td>
-                <td className='col-lg-2'>{this.props.product.productDescriptions}</td>
-                <td className='col-lg-2'>{this.props.product.productPrice}</td>
-                <td className="text-center col-lg-2"><Link to="#"><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteProduct(this.props.product.productId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
+                <td scope="row">{this.props.stt}</td>
+                <td>{this.props.product.productName}</td>
+                <td><img className="product-img" src={"images/" + this.props.product.productImage}/></td>
+                <td>{this.props.product.productUnit}</td>
+                <td>{this.props.product.productDescriptions}</td>
+                <td>{this.props.product.productPrice}</td>
+                <td className="text-center"><Link to={"/productForm/" + this.props.product.productId}><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteProduct(this.props.product.productId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
 
             </tr>
         )

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { actFetchProductCategoryRequest } from '../../../actions/product';
 import { actFetchCategoryRequest } from '../../../actions/category';
 import { Link } from 'react-router-dom';
+import { Modal } from 'react-modal';
 
 class ProductList extends Component {
     constructor(props) {
@@ -13,8 +14,29 @@ class ProductList extends Component {
         this.state = {
             showEditProductCategory: false,
             category: '',
+            product: {
+                productDescriptions: '',
+                productId: 0,
+                productName: '',
+                productPrice: 0,
+                productUnit: '',
+                categoryId: 0,
+                productImage:''
+            }
         }
     }
+
+
+    selectProductCategory(categories) {
+        var list = null;
+        if (categories.length > 0) {
+            list = categories.map((category, index) => {
+                return (<option key={index} value={category.categoryId}>{category.categoryName}</option>)
+            })
+        }
+        return list;
+    }
+
     showProducts(products) {
         var list = null;
         if (products.length > 0) {
@@ -62,18 +84,72 @@ class ProductList extends Component {
     render() {
         var { products, categories } = this.props;
         this.props.productsUpdated();
-        return(
+        return (
+
             <div>
                 <NavabarAdmin />
-               <div className="themed-container" fluid="sm" style={{minHeight: '600px'}}>
+                <div className="themed-container" fluid="sm" style={{ minHeight: '600px' }}>
+
                     <div className="row" style={{minHeight: '600px'}}>
                         <div className="col-3" style={{backgroundColor:'#d0a772'}}>
                             <LeftAdmin />
                         </div>
+
                         <div className="col-9" >
+
                             <div className="container">
-                                <h1 className="mt-3 mr-10">Quản lý sản phẩm <Link type="button" className="btn-info float-right btn-sm" to="/admin/productForm">Thêm sản phẩm</Link></h1>
-                                
+                                <h1 className="mt-3 mr-10">Quản lý sản phẩm </h1>
+                                <button className="btn-info float-right btn-sm" data-toggle="modal" data-target="#exampleModal">Thêm sản phẩm</button>
+                                <div className="modal" id="exampleModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                    <div className="modal-dialog">
+                                        <div className="modal-content">
+                                            <div className="modal-header">
+                                                <h5 className="modal-title" id="myModalLabel">Thêm sản phẩm</h5>
+                                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div className="modal-body">
+                                                <div className="container p-5">
+                                                    <h1 style={{ textAlign: 'center' }}>Thêm sản phẩm</h1>
+                                                    <form >
+                                                        <div className="form-group">
+                                                            <label style={{ fontSize: '18px' }}>Tên sản phẩm: </label>
+                                                            <input type="text" className="form-control" name="productDescriptions" />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
+                                                            <img className="product-img" src={"images/"} />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label style={{ fontSize: '18px' }}>Loại sản phẩm: </label>
+                                                            <select>
+                                                                {this.selectProductCategory(categories)}
+                                                            </select>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label style={{ fontSize: '18px' }}>Đơn vị tính: </label>
+                                                            <input type="text" className="form-control" name="productDescriptions" />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label style={{ fontSize: '18px' }}>Mô tả: </label>
+                                                            <input type="text" className="form-control" name="productDescriptions" />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label style={{ fontSize: '18px' }}>Gía: </label>
+                                                            <input type="number" className="form-control" name="productDescriptions" />
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div className="modal-footer">
+                                                <button className="btn btn-primary mr-2" data-dismiss="modal">Quay Lại</button>
+                                                <button type="button" className="btn btn-primary">Lưu Lại</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="special-menu text-center">
@@ -85,11 +161,11 @@ class ProductList extends Component {
                                 </div>
                                 <table className="table table-bordered" style={{ width: '100%' }} >
                                     <thead>
-                                        <tr>
-                                            <th style={{ width: '10%' }}>STT</th>
+                                        <tr style={{ height: '1em' }}>
+                                            <th style={{ width: '5%' }}>STT</th>
                                             <th style={{ width: '20%' }}>Tên sản phẩm</th>
-                                            <th className="product-img" style={{ width: '20%' }}>Hình ảnh</th>
-                                            <th style={{ width: '5%' }}>Đơn vị tính</th>
+                                            <th style={{ width: '20%' }}>Hình ảnh</th>
+                                            <th style={{ width: '10%' }}>ĐVT</th>
                                             <th style={{ width: '30%' }}>Mô tả</th>
                                             <th style={{ width: '5%' }}>Gía</th>
                                             <th style={{ width: '10%' }}>Thao tác</th>
@@ -108,6 +184,9 @@ class ProductList extends Component {
         )
     }
 }
+
+
+
 
 var mapStateToProps = state => {
     return {
