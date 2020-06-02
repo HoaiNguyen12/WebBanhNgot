@@ -31,7 +31,7 @@ namespace WebCakeAPI.Models
         [StringLength(100)]
         public string userAddress { get; set; }
 
-        public List<CartItem> lst { get; set; } 
+        public List<CartItem> cart { get; set; } 
 
 
     }
