@@ -61,29 +61,38 @@ class ProductList extends Component {
     }
     render() {
         var { products, categories } = this.props;
+        this.props.productsUpdated();
         return(
             <div>
                 <NavabarAdmin />
-               <div className="themed-container" fluid="sm" style={{height: '600px'}}>
-                    <div className="row" style={{height: '600px'}}>
+               <div className="themed-container" fluid="sm" style={{minHeight: '600px'}}>
+                    <div className="row" style={{minHeight: '600px'}}>
                         <div className="col-3" style={{backgroundColor:'#d0a772'}}>
                             <LeftAdmin />
                         </div>
                         <div className="col-9" >
                             <div className="container">
-                                <h1 className="mt-3">Quản lý sản phẩm</h1>
-                                {this.showCategories(categories)}
-                                <Link type="button" className="btn btn-info btn-sm mb-3" to="/admin/productForm">Thêm sản phẩm</Link>
-                                <table className="table table-bordered">
+                                <h1 className="mt-3 mr-10">Quản lý sản phẩm <Link type="button" className="btn-info float-right btn-sm" to="/admin/productForm">Thêm sản phẩm</Link></h1>
+                                
+                                <div className="row">
+                                    <div className="col-lg-12">
+                                        <div className="special-menu text-center">
+                                            <div className="button-group filter-button-group">
+                                                {this.showCategories(categories)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table className="table table-bordered" style={{ width: '100%' }} >
                                     <thead>
                                         <tr>
-                                            <th className="col-sm-1">STT</th>
-                                            <th className="col-sm-2">Tên sản phẩm</th>
-                                            <th className="col-sm-2">Hình ảnh</th>
-                                            <th className="col-sm-1">Đơn vị tính</th>
-                                            <th className="col-sm-2">Mô tả</th>
-                                            <th className="col-sm-2">Gía</th>
-                                            <th className="col-sm-2">Thao tác</th>
+                                            <th style={{ width: '10%' }}>STT</th>
+                                            <th style={{ width: '20%' }}>Tên sản phẩm</th>
+                                            <th className="product-img" style={{ width: '20%' }}>Hình ảnh</th>
+                                            <th style={{ width: '5%' }}>Đơn vị tính</th>
+                                            <th style={{ width: '30%' }}>Mô tả</th>
+                                            <th style={{ width: '5%' }}>Gía</th>
+                                            <th style={{ width: '10%' }}>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -103,7 +112,8 @@ class ProductList extends Component {
 var mapStateToProps = state => {
     return {
         products: state.products,
-        categories: state.categories
+        categories: state.categories,
+        productsUpdated: () => { return true }
     }
 }
 

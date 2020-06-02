@@ -1719,8 +1719,12 @@ align-items: center !important; }
 .mr-auto,
 .mx-auto {
     margin-right: auto !important; }
-    
 
+.product-img {
+    width: 12em;
+    height: 10em;
+    margin: auto;
+}
 
 
 
