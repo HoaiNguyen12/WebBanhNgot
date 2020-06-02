@@ -23,18 +23,18 @@ namespace WebCakeAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Checkout(Payment pay)
         {
-            int id = getUserId(pay.fullName, pay.userPhone);
             Bill bill = new Bill();
-            bill.userId = id;
             bill.billDate = DateTime.Now;
             bill.billStatus = "Chưa giao hàng";
             bill.billPayment = pay.billPayment;
             bill.billNote = pay.billNote;
+            Users user = getUserId(pay.fullName, pay.userPhone);
+            bill.userId = user.userId;
             _context.Bills.Add(bill);
             await _context.SaveChangesAsync();
 
             var idBill = bill.billId;
-            List<CartItem> lst = pay.lst;
+            List<CartItem> lst = pay.cart;
             foreach (var item in lst)
             {
                 BillDetail billDetail = new BillDetail();
@@ -49,10 +49,10 @@ namespace WebCakeAPI.Controllers
             return Ok();
         }
 
-        private int getUserId(string fullname, string userPhone)
+        public Users getUserId(string fullname, string userPhone)
         {
             Users user = _context.Users.FirstOrDefault(e => e.fullName == fullname && e.userPhone == userPhone);
-            return user.userId;
+            return user;
         }
     }
 
