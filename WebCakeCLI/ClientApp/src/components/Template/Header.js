@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -15,10 +15,13 @@ class Header extends Component {
             }
         }
         return quantity;
-    }
+	}
+	
+
 	render() {
 		this.props.cartUpdated();
 		var { cart } = this.props;
+		
 		return (
 			<header className="top-navbar">
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,15 +39,15 @@ class Header extends Component {
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about" >About</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact" >Contact</NavLink></li>
 								<li className="nav-item">
-									<NavLink className="nav-link" activeclassname="active" to="/cart" >
-										<button className="w3view-cart">
+									<NavLink className="nav-link" activeClassName="active" to="/contact" >
+										<button type="button" className="w3view-cart" >
 											<i className="fa fa-shopping-cart fa-1x" >{this.showTotalQuantity(cart)}</i> Shopping Cart
 										</button>
-										
 									</NavLink>
 								</li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/login" >Đăng nhập</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/registration" >Đăng ký</NavLink></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -58,7 +61,8 @@ class Header extends Component {
 var mapStateToProps = state => {
 	return {
 		cart: state.cart,
-		cartUpdated: () => { return true }
+		cartUpdated: () => { return true },
+		login: state.login
 	}
 }
 
