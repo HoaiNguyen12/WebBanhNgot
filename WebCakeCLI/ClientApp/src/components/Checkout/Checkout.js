@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './../Template/Header';
 import Footer from './../Template/Footer';
 import Contact from '../Home/Contact';
+import { connect } from 'react-redux';
 
 class Checkout extends Component {
     render() {
@@ -63,9 +64,9 @@ class Checkout extends Component {
     onSave = (e) => {
         e.preventDefault();
         var payment = {
-            fullName: this.props.payment.fullName,
-            userPhone: this.props.payment.userPhone,
-            userAddress: this.props.payment.userAddress,
+            fullName: this.props.login.fullName,
+            userPhone: this.props.login.userPhone,
+            userAddress: this.props.login.userAddress,
             note: this.props.payment.note,
             pay: this.props.payment.pay,
             cart: this.props.cart
@@ -74,4 +75,11 @@ class Checkout extends Component {
     }
 }
 
-export default Checkout;
+
+var mapStateToProps = state => {
+    return {
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps, null)(Checkout);

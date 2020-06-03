@@ -96,6 +96,11 @@ const routes = [
         main: (match) => <ProductForm match={match} />
     },
     {
+        path: '/productForm',
+        exact: false,
+        main: () => <ProductForm  />
+    },
+    {
         path: '/admin/categoryList',
         exact: false,
         main: () => <CategoryList />

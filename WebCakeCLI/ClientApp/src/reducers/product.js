@@ -22,10 +22,19 @@ const product = (state = initState, action) => {
                 state.splice(index, 1);
             }
             return [...state];
+        case types.EDIT_PRODUCT:
+            var index = findProduct(state, action.productID);
+            if (index != -1) {
+                state[index] = action.product;
+            }
+            return [...state];
+        case types.ADD_PRODUCT:
+            state.push(action.product);
+            return [...state];
         case types.DETAIL_PRODUCT:
             return action.product;
         default :
-            return [...state]
+            return state
     }
 
 }
