@@ -35,6 +35,7 @@ class Checkout extends Component {
                 cart: this.props.cart
             }
         });
+        console.log(this.state);
     };
 
     render() {

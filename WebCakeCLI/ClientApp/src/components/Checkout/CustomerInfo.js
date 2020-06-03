@@ -16,13 +16,14 @@ class CustomerInfo extends Component {
     }
     
     onChange = (e) => {
-        console.log(this.state);
         var target = e.target;
         var name = target.name; //txtName, txtPhone
         var value = target.value;
+        console.log(value);
         this.setState({
             [name]: value
-        });   
+        });
+        console.log(this.state);
         this.props.handleChange(this.state);
     }
     
