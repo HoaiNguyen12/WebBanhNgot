@@ -78,7 +78,12 @@ const routes = [
     {
         path: '/admin/userForm',
         exact: false,
-        main: () => <UserForm />
+        main: ({history}) => <UserForm history={history}/>
+    },
+    {
+        path : '/userForm/:id',
+        exact : false,
+        main : ({match, history}) => <UserForm match={match} history={history}/>
     },
     {
         path: '/admin/productList',
@@ -109,6 +114,11 @@ const routes = [
         path: '/admin/orderForm',
         exact: false,
         main: () => <OrderForm />
+    },
+    {
+        path : '/orderForm/:id',
+        exact : false,
+        main : ({match, history}) => <OrderForm match={match} history={history}/>
     },
     {
         path : '',
