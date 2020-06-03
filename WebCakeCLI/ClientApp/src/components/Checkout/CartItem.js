@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 
 class CartItem extends Component {
 
@@ -17,7 +17,7 @@ class CartItem extends Component {
                 </li>            
         );
     }
-    
+     
     showSubTotal = (price, quantity) => {
         return price * quantity;
     }
