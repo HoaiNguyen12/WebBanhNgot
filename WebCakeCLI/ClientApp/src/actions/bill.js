@@ -19,17 +19,30 @@ export const actFetchBills = (bills) =>{
 }
 
 
-
-export const actUpdateStatusBillRequest = (id) => {
-    return (dispatch) => {
-        return callApi("bills" + id, "PUT", null).then(res => {
-            console.log(res);
-            dispatch(actUpdateStatusBill(id))
+export const actGetBillRequest = (id) => {
+    return dispatch => {
+        return callApi(`bills/${id}`,'GET', null).then(res => {
+            dispatch(actGetBill(res.data));
         });
     }
 }
 
-export const actUpdateStatusBill = (bill) => {
+export const actGetBill = (bill) => {
+    return {
+        type: types.EDIT_BILL,
+        bill
+    }
+}
+
+export const actUpdateBillRequest = (bill) => {
+    return dispatch => {
+        return callApi(`bills/${bill.billId}`,'PUT', bill).then(res => {
+            dispatch(actUpdateBill(res.data));
+        });
+    }
+}
+
+export const actUpdateBill = (bill) => {
     return {
         type: types.UPDATE_STATUS_BILL,
         bill

@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 import NavabarAdmin from './../NavbarAdmin';
 import LeftAdmin from './../LeftAdmin';
-
+import User from './User';
+import { actFetchUsersRequest } from './../../../actions/user';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 class UserList extends Component {
-    render(){
+    showUser(users) {
+        var list = null;
+        if (users.length > 0) {
+            list = users.map((user, index) => {
+                return (<User
+                    key={index}
+                    stt={index}
+                    user={user}
+                />)
+            })
+        }
+        return list;
+    }
+    componentDidMount() {
+        this.props.fetchUser();
+    }
+    render() {
+        var { users } = this.props;
         return(
             <div>
                 <NavabarAdmin />
@@ -22,22 +42,16 @@ class UserList extends Component {
                                         <tr>
                                             <th>STT</th>
                                             <th>Tên người dùng</th>
+                                            <th>Tên đăng nhập</th>
                                             <th>Số điện thoại</th>
                                             <th>Địa Chỉ</th>
-                                            <th>Sửa</th>
-                                            <th>Xóa</th>
+                                            <th>Vai trò</th>
+                                            <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><Link to="#"><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link></td>
-                                            <td><i className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
-                                        </tr>
                                         
+                                        {this.showUser(users)}
                                     </tbody>
                                 </table>
                             </div>
@@ -49,4 +63,18 @@ class UserList extends Component {
     }
 }
 
-export default UserList;
+var mapStateToProps = state => {
+    return {
+        users: state.users
+    }
+}
+
+var mapDispathToProps = (dispatch, props) => {
+    return {
+        fetchUser: () => {
+            dispatch(actFetchUsersRequest());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(UserList);

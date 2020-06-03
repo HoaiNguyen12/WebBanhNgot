@@ -13,7 +13,11 @@ class Bill extends Component {
                 <td >{this.props.bill.billPayment}</td>
                 <td >{this.props.bill.billNote}</td>
                 <td >{this.props.bill.billStatus}</td>
-                <td className="text-center "><Link to="#"><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link></td>
+                <td className="text-center ">
+                <Link to={"/orderForm/" + this.props.bill.billId}>
+                        <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                    </Link>|
+                </td>
             </tr>
         )
     }
