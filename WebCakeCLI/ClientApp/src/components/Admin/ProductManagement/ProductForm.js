@@ -16,8 +16,7 @@ class ProductForm extends Component {
             categoryId: 1,
             productImage: '',
             productSize: 'nhỏ'
-
-        }
+        };
     }
     componentDidMount() {
         this.props.fetchCategory();
@@ -28,7 +27,7 @@ class ProductForm extends Component {
         if (this.props.match) {
             console.log(this.props.match.match.params.id);
             this.props.fetchProduct(this.props.match.match.params.id);
-            this.setState({ file: "images/" + this.props.product.productImage });
+            this.setState({ file: "images/" + this.props.product.productImage }); // API lấy sản phẩm qua id
             //this.setState({ product : this.props.product })
         }
     }
@@ -54,20 +53,39 @@ class ProductForm extends Component {
             this.props.addProduct(this.state);
         }
         else {
-
+            this.props.editProduct(this.state);
         }
     }
 
     onChange = (e) => {
         var target = e.target;
         var name = target.name; //txtName, txtPhone
-
         var value = target.value;
-            this.setState({
-                [name]: value
+        console.log(name + " " + value);
+        if (name == "productPrice" || name == "categoryId") {
+            value = parseInt(value);
+        }
+        this.setState({
+            [name]: value
+        });
 
-            });
-        
+
+        console.log(this.state);
+        //this.props.onHandleChange(this.state);
+    }
+    onSelect = (e) => {
+        var target = e.target;
+        var name = target.name; //txtName, txtPhone
+        var value = target.value;
+        console.log(name + " " + value);
+        if (name == "categoryId") {
+            value = parseInt(value);
+        }
+        this.setState({
+            [name]: value
+        });
+
+
         console.log(this.state);
         //this.props.onHandleChange(this.state);
     }

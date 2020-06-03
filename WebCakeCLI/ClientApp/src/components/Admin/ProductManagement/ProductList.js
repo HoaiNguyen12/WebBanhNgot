@@ -5,8 +5,6 @@ import Product from './Product';
 import { connect } from 'react-redux';
 import { actFetchProductCategoryRequest } from '../../../actions/product';
 import { actFetchCategoryRequest } from '../../../actions/category';
-import { Link } from 'react-router-dom';
-import { Modal } from 'react-modal';
 
 class ProductList extends Component {
     constructor(props) {
@@ -83,7 +81,6 @@ class ProductList extends Component {
     }
     render() {
         var { products, categories } = this.props;
-        this.props.productsUpdated();
         return (
 
             <div>
@@ -191,8 +188,7 @@ class ProductList extends Component {
 var mapStateToProps = state => {
     return {
         products: state.products,
-        categories: state.categories,
-        productsUpdated: () => { return true }
+        categories: state.categories
     }
 }
 

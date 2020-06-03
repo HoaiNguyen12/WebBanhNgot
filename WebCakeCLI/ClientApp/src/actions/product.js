@@ -54,7 +54,7 @@ export const actAddProductRequest = (product) => {
     return (dispatch) => {
         return callApi("products", "POST", product).then(res => {
             //console.log(id);
-            dispatch(actFetchProduct(res.data))
+            dispatch(actAddProduct(res.data))
         });
     }
 }
@@ -70,7 +70,7 @@ export const actEditProductRequest = (product) => {
     return (dispatch) => {
         return callApi("products/" + product.productID, "PUT", product).then(res => {
             //console.log(id);
-            dispatch(actFetchProduct(res.data))
+            dispatch(actEditProduct(res.data))
         });
     }
 }
