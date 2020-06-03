@@ -31,11 +31,10 @@ namespace WebCakeAPI.Models
 
 
         [StringLength(255)]
-        public string? productImage { get; set; }
+        public string productImage { get; set; }
 
 
         [StringLength(10)]
-        public string? productSize { get; set; }
-        public ICollection<Photo> photo { get; set; }
+        public string productSize { get; set; }
     }
 }

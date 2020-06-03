@@ -8,15 +8,15 @@ class ProductForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-                productDescriptions: '',
-                productId: 0,
-                productName: '',
-                productPrice: 0,
-                productUnit: '',
-                categoryId: 0,
+            productDescriptions: '',
+            productId: 0,
+            productName: '',
+            productPrice: 0,
+            productUnit: '',
+            categoryId: 1,
             productImage: '',
             productSize: 'nhỏ'
-            
+
         }
     }
     componentDidMount() {
@@ -42,7 +42,7 @@ class ProductForm extends Component {
         var list = null;
         if (categories.length > 0) {
             list = categories.map((category, index) => {
-                return (<option key={category.c} value={category.categoryId}>{category.categoryName}</option>)
+                return (<option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>)
             })
         }
         return list;
@@ -61,12 +61,14 @@ class ProductForm extends Component {
     onChange = (e) => {
         var target = e.target;
         var name = target.name; //txtName, txtPhone
+
         var value = target.value;
-        console.log(this.state);
-        this.setState({
-            [name]: value
+            this.setState({
+                [name]: value
+
+            });
         
-        });
+        console.log(this.state);
         //this.props.onHandleChange(this.state);
     }
 
