@@ -4,7 +4,7 @@ import callApi from '../utils/apiCaller';
 export const actFetchLoginRequest = (login) => {
     console.log(login);
     return (dispatch) => {
-        return callApi("users/checkUser", "POST", login).then(res => {
+        return callApi("Users/checkUser", "POST", login).then(res => {
             console.log(res);
             dispatch(actFetchLogin(res.data))
         }).catch(e => {
@@ -22,7 +22,7 @@ export const actFetchLogin = (user) => {
 
 export const actRegistrationRequest = (user) => {
     return (dispatch) => {
-        return callApi("users/registration", "POST", user).then(res => {
+        return callApi("Users/registration", "POST", user).then(res => {
             console.log(res);
             dispatch(actRegistration(res.data))
         });

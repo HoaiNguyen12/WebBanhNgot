@@ -86,19 +86,9 @@ const routes = [
         main: () => <ProductList />
     },
     {
-        path: '/admin/productForm',
+        path: '/productForm/:type/:id',
         exact: false,
-        main: () => <ProductForm />
-    },
-    {
-        path: '/productForm/:id',
-        exact: false,
-        main: (match) => <ProductForm match={match} />
-    },
-    {
-        path: '/productForm',
-        exact: false,
-        main: () => <ProductForm  />
+        main: ({ match }) => <ProductForm match={match} />
     },
     {
         path: '/admin/categoryList',

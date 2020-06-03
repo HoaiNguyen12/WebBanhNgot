@@ -49,7 +49,7 @@ class Product extends Component {
                 <td>{this.props.product.productUnit}</td>
                 <td>{this.props.product.productDescriptions}</td>
                 <td>{this.props.product.productPrice}</td>
-                <td className="text-center"><Link to={"/productForm/" + this.props.product.productId}><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteProduct(this.props.product.productId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
+                <td className="text-center"><Link to={"/productForm/edit" + this.props.product.productId}><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteProduct(this.props.product.productId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
 
             </tr>
         )

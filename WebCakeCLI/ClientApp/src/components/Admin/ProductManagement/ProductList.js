@@ -5,6 +5,7 @@ import Product from './Product';
 import { connect } from 'react-redux';
 import { actFetchProductCategoryRequest } from '../../../actions/product';
 import { actFetchCategoryRequest } from '../../../actions/category';
+import { NavLink } from 'react-router-dom';
 
 class ProductList extends Component {
     constructor(props) {
@@ -96,7 +97,7 @@ class ProductList extends Component {
 
                             <div className="container">
                                 <h1 className="mt-3 mr-10">Quản lý sản phẩm </h1>
-                                <button className="btn-info float-right btn-sm" data-toggle="modal" data-target="#exampleModal">Thêm sản phẩm</button>
+                                <NavLink className="btn-info float-right btn-sm" to="/productForm/new/0" >Thêm sản phẩm</NavLink>
                                 <div className="modal" id="exampleModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                                     <div className="modal-dialog">
                                         <div className="modal-content">

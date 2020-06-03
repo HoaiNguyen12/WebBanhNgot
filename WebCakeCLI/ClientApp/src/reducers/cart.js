@@ -5,7 +5,7 @@ var data = JSON.parse(localStorage.getItem('CART'));
 var initialState = data != null ? data : [];
 
 const cart = (state = initialState, action) => {
-    debugger;
+    //debugger;
     var { product, quantity } = action;
     var index = -1;
     switch(action.type){

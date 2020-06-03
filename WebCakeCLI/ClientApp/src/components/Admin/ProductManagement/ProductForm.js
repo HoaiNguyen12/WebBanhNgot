@@ -20,21 +20,17 @@ class ProductForm extends Component {
     }
     componentDidMount() {
         this.props.fetchCategory();
-
-        
+        const { type, id } = this.props?.match?.params;
+        console.log(this.props,'props')
+        if (type === 'edit') {
+                this.props.fetchProduct(id);
+                this.setState({ file: "images/" + this.props.product.productImage }); // API lấy sản phẩm qua id
+                //this.setState({ product : this.props.product })
+        }
         //var id = useParams();
         //console.log(id);
-        if (this.props.match) {
-            console.log(this.props.match.match.params.id);
-            this.props.fetchProduct(this.props.match.match.params.id);
-            this.setState({ file: "images/" + this.props.product.productImage }); // API lấy sản phẩm qua id
-            //this.setState({ product : this.props.product })
-        }
+        
     }
-    //componentDidMount() {
-    //    //this.state = this.props.product;
-    //    this.setState({ product: this.props.product })
-    //}
 
     selectProductCategory(categories) {
 
@@ -61,33 +57,12 @@ class ProductForm extends Component {
         var target = e.target;
         var name = target.name; //txtName, txtPhone
         var value = target.value;
-        console.log(name + " " + value);
-        if (name == "productPrice" || name == "categoryId") {
+        if ((name == "productPrice") || (name == "categoryId") ){
             value = parseInt(value);
         }
         this.setState({
             [name]: value
         });
-
-
-        console.log(this.state);
-        //this.props.onHandleChange(this.state);
-    }
-    onSelect = (e) => {
-        var target = e.target;
-        var name = target.name; //txtName, txtPhone
-        var value = target.value;
-        console.log(name + " " + value);
-        if (name == "categoryId") {
-            value = parseInt(value);
-        }
-        this.setState({
-            [name]: value
-        });
-
-
-        console.log(this.state);
-        //this.props.onHandleChange(this.state);
     }
 
     handleChange = (event) => {
@@ -98,37 +73,39 @@ class ProductForm extends Component {
     }
 
     render() {
-        var { categories, product } = this.props;
+        const { categories, product } = this.props;
+        const path = product?.productImage ? `images/${product?.productImage}` : "Chỗ này thêm 1 ảnh trống nào đó đề phòng không có file ảnh " ;
+        const title = this.props.match.params.type == "edit" ? "Sửa sản phẩm" : "Thêm sản phẩm" ;
         return(
             <div className="container p-5">
-                <h1 style={{textAlign: 'center'}}>Thêm sản phẩm</h1>
+                <h1 style={{ textAlign: 'center' }}>{title}</h1>
                 <form >
                     <div className="form-group">
                         <label style={{fontSize:'18px'}}>Tên sản phẩm: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productName} name="productName"/>
+                        <input type="text" className="form-control" onChange={this.onChange} value={product?.productName} name="productName"/>
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
                         <input type="file" onChange={this.handleChange} />
-                        <img className="product-img" id="fileItem" src={this.state.file} />
+                        <img className="product-img" id="fileItem" src={path} />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Loại sản phẩm: </label>
-                        <select value={this.state.categoryId} name="categoryId" onChange={this.onChange} id="abc">
+                        <select value={product?.categoryId} name="categoryId" onChange={this.onChange} id="abc">
                             {this.selectProductCategory(categories)}
                         </select>
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Đơn vị tính: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productUnit} name="productUnit" />
+                        <input type="text" className="form-control" onChange={this.onChange} value={product?.productUnit} name="productUnit" />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Mô tả: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productDescriptions} name="productDescriptions" />
+                        <input type="text" className="form-control" onChange={this.onChange} value={product?.productDescriptions} name="productDescriptions" />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Gía: </label>
-                        <input type="number" className="form-control" onChange={this.onChange} value={this.state.productPrice} name="productPrice" />
+                        <input type="number" className="form-control" onChange={this.onChange} value={product?.productPrice} name="productPrice" />
                     </div>
                     <Link className="btn btn-primary mr-2" to="/admin/productList">Quay Lại</Link>
                     <button type="button" className="btn btn-primary" onClick={() => this.SaveProduct()}>Lưu Lại</button>

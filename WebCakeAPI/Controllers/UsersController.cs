@@ -49,7 +49,7 @@ namespace WebCakeAPI.Controllers
 
             if (users == null)
             {
-                return NotFound();
+                return  new Users();
             }
 
             return users;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { actFetchLoginRequest } from '../../actions/login';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import login from '../../reducers/login';
 
 class Login extends Component {
@@ -34,12 +35,13 @@ class Login extends Component {
             password: password
         };
         this.props.fetchLogin(user);
-        if (login) {
-            this.props.history.push('/');
-        }
-        else
-        {
-            this.props.history.push('/menu');
+        
+    }
+
+    componentDidUpdate() {
+        const { login } = this.props;
+        if (Object.keys(login).length !== 0) {
+            window.open('/','_self')
         }
     }
 
