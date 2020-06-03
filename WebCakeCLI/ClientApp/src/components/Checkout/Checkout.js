@@ -7,7 +7,6 @@ import YourOrder from './YourOrder';
 import { connect } from 'react-redux';
 import { actPaymentRequest } from './../../actions/cart';
 
-
 class Checkout extends Component {
 
     constructor(props) {

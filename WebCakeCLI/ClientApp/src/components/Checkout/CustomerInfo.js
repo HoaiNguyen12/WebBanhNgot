@@ -36,7 +36,7 @@ class CustomerInfo extends Component {
                      <div className="mb-3">
                         <label htmlFor="name">Họ tên*
                         </label>
-                        <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange} required />
+                        <input type="text" className="form-control" name="fullName" value={this.state.fullName} onChange={this.onChange} required />
                         <div className="invalid-feedback">
                              Please enter your orderee name.
                         </div>
@@ -44,7 +44,7 @@ class CustomerInfo extends Component {
                     <div className="mb-3">
                         <label htmlFor="phone">Số điện thoại*
                         </label>
-                        <input type="text" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange} required />
+                        <input type="text" className="form-control" name="userPhone" value={this.state.userPhone} onChange={this.onChange} required />
                         <div className="invalid-feedback">
                             Please enter your orderee phone.
                         </div>
@@ -52,7 +52,7 @@ class CustomerInfo extends Component {
 
                     <div className="mb-3">
                         <label htmlFor="address">Địa chỉ*</label>
-                        <input type="text" className="form-control" name="userAddress" value={userAddress} onChange={this.onChange} required />
+                        <input type="text" className="form-control" name="userAddress" value={this.state.userAddress} onChange={this.onChange} required />
                         <div className="invalid-feedback">
                             Please enter your shipping address.
                         </div>
@@ -61,7 +61,7 @@ class CustomerInfo extends Component {
                     <div className="mb-3">
                         <label htmlFor="note">Ghi chú
                         </label>
-                        <input type="text" className="form-control" name="note" value={note} onChange={this.onChange} />
+                        <input type="text" className="form-control" name="note" value={this.state.note} onChange={this.onChange} />
                     </div>
                     <hr className="mb-4" />
                     <h2 className="mb-3">Hình thức thanh toán</h2>

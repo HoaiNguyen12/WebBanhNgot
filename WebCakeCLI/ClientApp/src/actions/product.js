@@ -35,8 +35,8 @@ export const actFetchDeleteProduct = (id) => {
 
 
 export const actFetchProductRequest = (id) => {
-    return (dispatch) => {
-        return callApi("products/" + id, "GET", null).then(res => {
+    return async (dispatch) => {
+        return await callApi("products/" + id, "GET", null).then(res => {
             console.log(id);
             dispatch(actFetchProduct(res.data))
         });
@@ -46,6 +46,38 @@ export const actFetchProductRequest = (id) => {
 export const actFetchProduct = (product) => {
     return {
         type: types.DETAIL_PRODUCT,
+        product: product
+    }
+}
+
+export const actAddProductRequest = (product) => {
+    return (dispatch) => {
+        return callApi("products", "POST", product).then(res => {
+            //console.log(id);
+            dispatch(actFetchProduct(res.data))
+        });
+    }
+}
+
+export const actAddProduct = (product) => {
+    return {
+        type: types.ADD_PRODUCT,
+        product: product
+    }
+}
+
+export const actEditProductRequest = (product) => {
+    return (dispatch) => {
+        return callApi("products/" + product.productID, "PUT", product).then(res => {
+            //console.log(id);
+            dispatch(actFetchProduct(res.data))
+        });
+    }
+}
+
+export const actEditProduct = (product) => {
+    return {
+        type: types.EDIT_PRODUCT,
         product: product
     }
 }
