@@ -7,7 +7,7 @@ import About from './components/About/About';
 import Login from './components/Login/Login';
 import Registration from './components/Login/Registration';
 import NotFound from './components/NotFound/NotFound';
-import CheckoutContainer from './containers/CheckoutContainer';
+import Checkout from './components/Checkout/Checkout';
 import React from 'react';
 import CartContainer from './containers/CartContainer';
 import ProductList from './components/Admin/ProductManagement/ProductList';
@@ -53,7 +53,7 @@ const routes = [
     {
         path : '/checkout',
         exact : false,
-        main : () => <CheckoutContainer />
+        main : () => <Checkout />
     },
     {
         path : '/login',

@@ -30,11 +30,12 @@ export const actPaymentRequest = (payment) => {
         return callApi('checkout','POST', {
            payment
         }).then(res => {
-            dispatch(actPayment(res.data));
+            dispatch(actPayment(res.data.payment));
         });
     };
 }
 export const actPayment = (payment) => {
+    debugger;
     return {
         type: types.PAYMENT_CART,
         payment
