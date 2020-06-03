@@ -5,6 +5,7 @@ var data = JSON.parse(localStorage.getItem('CART'));
 var initialState = data != null ? data : [];
 
 const cart = (state = initialState, action) => {
+    debugger;
     var { product, quantity } = action;
     var index = -1;
     switch(action.type){
@@ -39,8 +40,6 @@ const cart = (state = initialState, action) => {
             localStorage.removeItem('CART');
             return state;
         case types.PAYMENT_CART:
-            state.splice(state[0], state.length);
-            localStorage.removeItem('CART');
             return state;
         default: return state;
     }

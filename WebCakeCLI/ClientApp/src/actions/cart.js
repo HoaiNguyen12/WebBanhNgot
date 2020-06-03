@@ -33,6 +33,7 @@ export const actPaymentRequest = (payment) => {
     };
 }
 export const actPayment = (payment) => {
+    debugger;
     return {
         type: types.PAYMENT_CART,
         payment

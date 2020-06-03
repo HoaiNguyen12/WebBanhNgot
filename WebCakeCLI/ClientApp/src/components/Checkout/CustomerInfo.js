@@ -7,35 +7,25 @@ class CustomerInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullName: '',
-            userPhone: '',
-            userAddress: '',
+            fullName: this.props.login.fullName,
+            userPhone: this.props.login.userPhone,
+            userAddress: this.props.login.userAddress,
             note: '',
             pay: ''
         };
     }
     
     onChange = (e) => {
+        console.log(this.state);
         var target = e.target;
         var name = target.name; //txtName, txtPhone
         var value = target.value;
         this.setState({
             [name]: value
-        });
-        this.props.onHandleChange(this.state);   
+        });   
+        this.props.handleChange(this.state);
     }
-    componentWillMount() {
-        console.log(this.props.login);
-        if (this.props.login) {
-
-            console.log(this.props.login);
-            this.setState({
-                fullName: this.props.login.fullName,
-                userPhone: this.props.login.userPhone,
-                userAddress: this.props.login.userAddress
-            });
-        }
-    }
+    
     render() {
         var { note, pay } = this.state;
         var { fullName, userPhone, userAddress } = this.props.login;
@@ -94,7 +84,7 @@ class CustomerInfo extends Component {
    
 }
 
-var mapStateToProps = state => {
+const mapStateToProps = state => {
     return {
         login: state.login
     }
