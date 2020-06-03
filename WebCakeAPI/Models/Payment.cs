@@ -15,11 +15,11 @@ namespace WebCakeAPI.Models
 
 
         [StringLength(100)]
-        public string billPayment { get; set; }
+        public string pay { get; set; }
 
 
         [StringLength(255)]
-        public string billNote { get; set; }
+        public string note { get; set; }
 
 
         [StringLength(100)]
@@ -31,7 +31,7 @@ namespace WebCakeAPI.Models
         [StringLength(100)]
         public string userAddress { get; set; }
 
-        public List<CartItem> cart { get; set; } 
+        public List<Cart> cart { get; set; } 
 
 
     }

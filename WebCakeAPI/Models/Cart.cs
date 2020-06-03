@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace WebCakeAPI.Models
 {
-    public class CartItem
+    public class Cart
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public double price { get; set; }
+        public Product product { get; set; }
         public int quantity { get; set; }
     }
 }

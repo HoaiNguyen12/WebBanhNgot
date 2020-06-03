@@ -21,26 +21,26 @@ namespace WebCakeAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Checkout(Payment pay)
+        public async Task<ActionResult<Bill>> Checkout(Payment pay)
         {
             Bill bill = new Bill();
             bill.billDate = DateTime.Now;
             bill.billStatus = "Chưa giao hàng";
-            bill.billPayment = pay.billPayment;
-            bill.billNote = pay.billNote;
+            bill.billPayment = pay.pay;
+            bill.billNote = pay.note;
             Users user = getUserId(pay.fullName, pay.userPhone);
             bill.userId = user.userId;
             _context.Bills.Add(bill);
             await _context.SaveChangesAsync();
 
             var idBill = bill.billId;
-            List<CartItem> lst = pay.cart;
+            List<Cart> lst = pay.cart;
             foreach (var item in lst)
             {
                 BillDetail billDetail = new BillDetail();
                 billDetail.billId = idBill;
-                billDetail.productId = item.id;
-                billDetail.price = (decimal)item.price;
+                billDetail.productId = item.product.productId;
+                billDetail.price = (decimal)item.product.productPrice;
                 billDetail.quantity = item.quantity;
 
                 _context.Bill_details.Add(billDetail);
@@ -49,9 +49,9 @@ namespace WebCakeAPI.Controllers
             return Ok();
         }
 
-        public Users getUserId(string fullname, string userPhone)
+        public Users getUserId(string fullName, string userPhone)
         {
-            Users user = _context.Users.FirstOrDefault(e => e.fullName == fullname && e.userPhone == userPhone);
+            Users user = _context.Users.Where(x => x.fullName == fullName && x.userPhone == userPhone).FirstOrDefault();
             return user;
         }
     }
