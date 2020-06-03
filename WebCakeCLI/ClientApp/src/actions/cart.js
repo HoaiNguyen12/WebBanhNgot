@@ -27,10 +27,8 @@ export const actUpdateProductInCart = (product,quantity) => {
 export const actPaymentRequest = (payment) => {
     debugger;
     return (dispatch) => {
-        return callApi('checkout','POST', {
-           payment
-        }).then(res => {
-            dispatch(actPayment(res.data.payment));
+        return callApi('checkout','POST',payment).then(res => {
+            dispatch(actPayment(res.data));
         });
     };
 }
