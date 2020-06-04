@@ -25,17 +25,17 @@ class OrderList extends Component {
                         <div className="col-9" >
                             <div className="container">
                                 <h1 className="mt-3">Quản lý đơn hàng</h1>
-                                <table className="table table-bordered">
+                                <table className="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Mã đơn hàng</th>
-                                            <th>Khách hàng</th>
-                                            <th>Ngày đặt</th>
-                                            <th>Hình thức thanh toán</th>
-                                            <th>Ghi chú</th>
-                                            <th>Trạng thái</th>
-                                            <th>Thao tác</th>
+                                            <th className="text-center">STT</th>
+                                            <th className="text-center">Mã đơn hàng</th>
+                                            <th className="text-center">Khách hàng</th>
+                                            <th className="text-center">Ngày đặt</th>
+                                            <th className="text-center">Hình thức thanh toán</th>
+                                            <th className="text-center">Ghi chú</th>
+                                            <th className="text-center">Trạng thái</th>
+                                            <th className="text-center">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -40,16 +40,16 @@ class UserList extends Component {
                             <div className="container">
                                 <h1 className="mt-3">Quản lý người dùng</h1>
                                 <Link type="button" className="btn btn-info btn-sm mb-3" to="/admin/userForm">Thêm người dùng</Link>
-                                <table className="table table-bordered">
+                                <table className="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Tên người dùng</th>
-                                            <th>Tên đăng nhập</th>
-                                            <th>Số điện thoại</th>
-                                            <th>Địa Chỉ</th>
-                                            <th>Vai trò</th>
-                                            <th>Thao tác</th>
+                                            <th className="text-center">STT</th>
+                                            <th className="text-center">Tên người dùng</th>
+                                            <th className="text-center">Tên đăng nhập</th>
+                                            <th className="text-center">Số điện thoại</th>
+                                            <th className="text-center">Địa Chỉ</th>
+                                            <th className="text-center">Vai trò</th>
+                                            <th className="text-center">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
