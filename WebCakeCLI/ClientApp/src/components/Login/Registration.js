@@ -11,7 +11,6 @@ class Registration extends Component {
             userName: '',
             fullName: '',
             password: '',
-            repassword: '',
             userPhone: '',
             userAddress: ''
         }
@@ -43,7 +42,7 @@ class Registration extends Component {
     }
 
     render() {
-        var { userName, fullName, password, repassword, userPhone, userAddress } = this.state;
+        var { userName, fullName, password, userPhone, userAddress } = this.state;
         return ( 
             <div>
                 <div className="container-scroller" style={{fontSize:'13px'}}>
@@ -55,9 +54,9 @@ class Registration extends Component {
                                         <h1 style={{ textAlign: 'center' }}>ĐĂNG KÝ</h1>
                                         <form onSubmit={this.onSubmit}>
                                             <div className="form-group">
-                                                <label className="label">Tên đăng nhập</label>
+                                                <label className="label">Tên đăng nhập*:</label>
                                                 <div className="input-group">
-                                                    <input type="text" className="form-control" name="userName" value={userName} onChange={this.onChange} />
+                                                    <input type="text" className="form-control" name="userName" value={userName} onChange={this.onChange} required/>
                                                     <div className="input-group-append">
                                                         <span className="input-group-text">
                                                             <i className="mdi mdi-check-circle-outline"></i>
@@ -66,9 +65,9 @@ class Registration extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label className="label">Tên đầy đủ</label>
+                                                <label className="label">Tên đầy đủ*:</label>
                                                 <div className="input-group">
-                                                    <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange} />
+                                                    <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange} required/>
                                                     <div className="input-group-append">
                                                         <span className="input-group-text">
                                                             <i className="mdi mdi-check-circle-outline"></i>
@@ -77,9 +76,9 @@ class Registration extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label className="label">Mật khẩu</label>
+                                                <label className="label">Mật khẩu*:</label>
                                                 <div className="input-group">
-                                                    <input type="password" className="form-control" name="password" placeholder="*********" value={password} onChange={this.onChange} />
+                                                    <input type="password" className="form-control" name="password" placeholder="*********" value={password} onChange={this.onChange} required/>
                                                     <div className="input-group-append">
                                                         <span className="input-group-text">
                                                             <i className="mdi mdi-check-circle-outline"></i>
@@ -88,9 +87,9 @@ class Registration extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label className="label">Nhập lại mật khẩu</label>
+                                                <label className="label">Số điện thoại*:</label>
                                                 <div className="input-group">
-                                                    <input type="password" className="form-control" name="repassword" placeholder="*********" value={repassword} onChange={this.onChange}/>
+                                                    <input type="number" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange} required/>
                                                     <div className="input-group-append">
                                                         <span className="input-group-text">
                                                             <i className="mdi mdi-check-circle-outline"></i>
@@ -99,18 +98,7 @@ class Registration extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <label className="label">Số điện thoại</label>
-                                                <div className="input-group">
-                                                    <input type="number" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange} />
-                                                    <div className="input-group-append">
-                                                        <span className="input-group-text">
-                                                            <i className="mdi mdi-check-circle-outline"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="form-group">
-                                                <label className="label">Địa chỉ</label>
+                                                <label className="label">Địa chỉ*:</label>
                                                 <div className="input-group">
                                                     <input type="text" className="form-control" name="userAddress" value={userAddress} onChange={this.onChange} />
                                                     <div className="input-group-append">

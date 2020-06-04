@@ -64,7 +64,7 @@ const routes = [
     {
         path : '/registration',
         exact : false,
-        main : () => <Registration />
+        main: ({ history }) => <Registration history={history} />
     },
     {
         path: '/productList',
