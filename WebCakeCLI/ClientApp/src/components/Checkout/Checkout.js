@@ -6,6 +6,7 @@ import CustomerInfo from './CustomerInfo';
 import YourOrder from './YourOrder';
 import { connect } from 'react-redux';
 import { actPaymentRequest } from './../../actions/cart';
+import { Redirect } from 'react-router-dom';
 
 class Checkout extends Component {
 
@@ -100,6 +101,8 @@ class Checkout extends Component {
         console.log(this.state);
         e.preventDefault();
         this.props.onPayment(this.state.payment);
+        alert('Đặt hàng thành công');
+        window.open('/', '_self')
     }
 }
 

@@ -46,7 +46,6 @@ class OrderForm extends Component {
         console.log(this.state);
         e.preventDefault();
         var { userId, billId, billDate, billNote, billPayment, billStatus } = this.state;
-        var { history } = this.props;
         var bill = {
             billId: billId,
             userId: userId,
@@ -56,7 +55,7 @@ class OrderForm extends Component {
             billPayment: billPayment
         }
         this.props.onUpdateBill(bill);
-        history.goBack();
+        window.open('/admin/orderList', '_self')
     }
     render(){
         var { billStatus} = this.state;

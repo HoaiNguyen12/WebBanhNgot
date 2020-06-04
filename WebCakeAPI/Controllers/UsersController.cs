@@ -81,7 +81,7 @@ namespace WebCakeAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsers(int id, Users users)
+        public async Task<ActionResult<Users>> PutUsers(int id, Users users)
         {
             if (id != users.userId)
             {
@@ -106,7 +106,7 @@ namespace WebCakeAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return users;
         }
 
         // POST: api/Users

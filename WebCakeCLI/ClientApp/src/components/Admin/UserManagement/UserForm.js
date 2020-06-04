@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { actAddUserRequest, actGetUserRequest, actUpdateUserRequest} from '../../../actions/user';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
+import Swal from 'sweetalert2';
+
 
 class UserForm extends Component {
     constructor(props) {
@@ -13,7 +15,8 @@ class UserForm extends Component {
             password:'',
             userPhone: '',
             userAddress:'',
-            isAdmin: 0
+            isAdmin: 0,
+            isUpdate: false
         };
     }
     componentDidMount() {
@@ -52,7 +55,6 @@ class UserForm extends Component {
         console.log(this.state);
         e.preventDefault();
         var { userId,userName, fullName,userAddress, userPhone, password,isAdmin } = this.state;
-        var { history } = this.props;
         var user = {
                 userId: userId,
                 userName: userName,
@@ -67,8 +69,30 @@ class UserForm extends Component {
         }else {
             this.props.onAddUser(user);
         }
-        history.goBack();
+        window.open('/admin/orderList', '_self')
+        
     }
+
+    /*componentDidUpdate() {
+        const { login } = this.props;
+        if (Object.keys(login).length !== 0) {
+            window.open('/admin/orderList', '_self')
+        }
+        else {
+            if (this.state.isLogin) {
+                Swal.fire({
+                    title: "Đăng nhập sai",
+                    text: "Vui lòng thử lại",
+                    icon: "error",
+                    timer: 1000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                });
+            }
+        }
+    }*/
+    
+
     render(){
         var { userId,userName, fullName,userAddress, userPhone, password,isAdmin } = this.state;
         return(

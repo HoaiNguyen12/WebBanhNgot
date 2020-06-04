@@ -6,6 +6,7 @@ import { actFetchUsersRequest } from './../../../actions/user';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
 class UserList extends Component {
     showUser(users) {
         var list = null;
@@ -23,6 +24,8 @@ class UserList extends Component {
     componentDidMount() {
         this.props.fetchUser();
     }
+
+    
     render() {
         var { users } = this.props;
         return(

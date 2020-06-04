@@ -40,6 +40,7 @@ const cart = (state = initialState, action) => {
             localStorage.removeItem('CART');
             return state;
         case types.PAYMENT_CART:
+            localStorage.removeItem('CART');
             return state;
         default: return state;
     }

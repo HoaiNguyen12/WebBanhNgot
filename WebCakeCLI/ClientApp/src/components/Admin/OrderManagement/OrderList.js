@@ -30,7 +30,7 @@ class OrderList extends Component {
                                         <tr>
                                             <th>STT</th>
                                             <th>Mã đơn hàng</th>
-                                            <th>Tên khách hàng</th>
+                                            <th>Khách hàng</th>
                                             <th>Ngày đặt</th>
                                             <th>Hình thức thanh toán</th>
                                             <th>Ghi chú</th>
