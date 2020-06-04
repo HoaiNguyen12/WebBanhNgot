@@ -341,13 +341,13 @@ button:focus{
 -------------------------------------------------------------------*/
 
 
-.qt-background{
-	background: url(../images/qt-bg.jpg) no-repeat;
-	background-size: cover;
-	padding: 100px 0;
-	background-attachment: fixed;
-	background-position: center center;
-	position: relative;
+.qt-background {
+    background: url(../images/thuong-thuc-banh-ngot-sai-gon-c369f2\ \(1\).jpg) no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+    background-attachment: fixed;
+    background-position: center center;
+    position: relative;
 }
 .qt-background p {
     font-size: 35px;
