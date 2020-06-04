@@ -1726,10 +1726,23 @@ align-items: center !important; }
     margin: auto;
 }
 
+.list-group-item {
+    background : transparent;
+    width: 100%;
+}
 
+.list-group-item:hover {
+    background: #fff;
+    width: 100%;
+}
 
-
-
+    .list-group-item:after hover {
+        background: #fff;
+        width: 100%;
+    }
+.active-list-group-item {
+    background: #fff;
+}
 
 
 

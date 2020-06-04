@@ -1,6 +1,15 @@
-import * as types from '../contraints/index';
+﻿import * as types from '../contraints/index';
 
-var initState = [];
+var initState = {
+    productDescriptions: '',
+    productId: 0,
+    productName: '',
+    productPrice: 0,
+    productUnit: '',
+    categoryId: 1,
+    productImage: '111.jpg',
+    productSize: 'nhỏ'
+};
 
 const itemEditProduct = (state = initState, action) => {
     switch (action.type) {

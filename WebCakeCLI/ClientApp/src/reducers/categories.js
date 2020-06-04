@@ -2,13 +2,11 @@
 
 var initState = [];
 
-const product = (state = initState, action) => {
+const category = (state = initState, action) => {
     switch (action.type) {
         case types.FETCH_CATEGORY:
             state = action.payload;
             return [...state];
-        case types.GET_CATEGORY:
-            return action.payload;
         case types.DELETE_CATEGORY:
             var index = findCategory(state, action.id);
             if (index != -1) {
@@ -40,4 +38,4 @@ var findCategory = (categories, id) => {
     return index;
 }
 
-export default product;
+export default category;

@@ -78,11 +78,13 @@ class ProductList extends Component {
                 <div className="themed-container" fluid="sm" style={{ minHeight: '600px' }}>
 
                     <div className="row" style={{minHeight: '600px'}}>
-                        <div className="col-3" style={{backgroundColor:'#d0a772'}}>
-                            <LeftAdmin />
+                        <div className="col-2" style={{ backgroundColor: '#d0a772' }}>
+                            <div className="position-fixed col-2 pl-0">
+                                <LeftAdmin />
+                            </div>
                         </div>
 
-                        <div className="col-9" >
+                        <div className="col-10" >
 
                             <div className="container">
                                 <h1 className="mt-3 mr-10">Quản lý sản phẩm <NavLink className="btn-info float-right btn-sm" to="/admin/product/create/0" >Thêm sản phẩm</NavLink></h1>

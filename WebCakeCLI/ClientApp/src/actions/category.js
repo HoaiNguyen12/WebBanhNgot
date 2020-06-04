@@ -19,8 +19,8 @@ export const actFetchCategory = (categories) => {
 
 export const actGetCategoryRequest = (id) => {
     return (dispatch) => {
-        return callApi("categories/" + id, "GET", null).then(res => {
-            //console.log(res);
+        return callApi("categories/get/" + id, "GET", null).then(res => {
+            console.log(res.data);
             dispatch(actGetCategory(res.data))
         });
     }
@@ -28,8 +28,8 @@ export const actGetCategoryRequest = (id) => {
 
 export const actGetCategory = (category) => {
     return {
-        type: types.GET_CATEGORY,
-        payload: category
+        type: types.EDIT_CATEGORY,
+        category
     }
 }
 
@@ -76,8 +76,8 @@ export const actEditCategoryRequest = (category) => {
 
 export const actEditCategory = (category) => {
     return {
-        type: types.EDIT_CATEGORY,
-        category: category
+        type: types.UPDATE_CATEGORY,
+        category
     }
 }
 

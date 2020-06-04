@@ -30,10 +30,12 @@ class CategoryList extends Component {
                 <NavabarAdmin />
                <div className="themed-container" fluid="sm" style={{height: '600px'}}>
                     <div className="row" style={{height: '600px'}}>
-                        <div className="col-3" style={{backgroundColor:'#d0a772'}}>
-                            <LeftAdmin />
+                        <div className="col-2" style={{ backgroundColor: '#d0a772' }}>
+                            <div className="position-fixed col-2 pl-0">
+                                <LeftAdmin />
+                            </div>
                         </div>
-                        <div className="col-9" >
+                        <div className="col-10" >
                             <div className="container">
                                 <h1 className="mt-3 pb-20">Quản lý loại sản phẩm <NavLink className="btn-info float-right btn-sm" to="/admin/category/create/0" >Thêm sản phẩm</NavLink>
                                 </h1>
