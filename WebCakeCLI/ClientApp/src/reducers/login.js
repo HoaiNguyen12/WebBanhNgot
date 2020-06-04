@@ -16,7 +16,7 @@ const login = (state = initState, action) => {
             return state;
         case types.REGISTRATION:
             //state.push(action.user);
-            return [...state];
+            return state;
         case types.LOGOUT:
             localStorage.removeItem("user");
             state = {};

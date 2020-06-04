@@ -81,24 +81,24 @@ class UserForm extends Component {
                 <h1 style={{textAlign: 'center'}}>{userId !== '' ? 'Cập nhật người dùng' : 'Thêm mới người dùng'}</h1>
                 <form onSubmit={this.onSave}>
                     <div className="form-group mb-1">
-                        <label style={{fontSize:'18px'}}>User Name: </label>
-                        <input type="text" className="form-control" name="userName" value={userName} onChange={this.onChange}/>
+                        <label style={{fontSize:'18px'}}>User Name*: </label>
+                        <input type="text" className="form-control" name="userName" value={userName} onChange={this.onChange} required/>
                     </div>
                     <div className="form-group mb-1">
-                        <label style={{fontSize:'18px'}}>Full Name: </label>
-                        <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange}/>
+                        <label style={{fontSize:'18px'}}>Full Name*: </label>
+                        <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange} required/>
                     </div>
                     <div className="form-group mb-1">
-                        <label style={{fontSize:'18px'}}>Password:</label>
-                        <input type="password" className="form-control" placeholder="Enter password" id="pwd" name="password" value={password} onChange={this.onChange}/>
+                        <label style={{fontSize:'18px'}}>Password*:</label>
+                        <input type="password" className="form-control" placeholder="Enter password" id="pwd" name="password" value={password} onChange={this.onChange} required/>
                     </div>
                     <div className="form-group mb-1">
-                        <label style={{fontSize:'18px'}}>Phone: </label>
-                        <input type="number" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange}/>
+                        <label style={{fontSize:'18px'}}>Phone*: </label>
+                        <input type="number" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange} required/>
                     </div>
                     <div className="form-group mb-1">
-                        <label style={{fontSize:'18px'}}>Address: </label>
-                        <input type="text" className="form-control" name="userAddress" value={userAddress} onChange={this.onChange}/>
+                        <label style={{fontSize:'18px'}}>Address*: </label>
+                        <input type="text" className="form-control" name="userAddress" value={userAddress} onChange={this.onChange} required/>
                     </div>
                     <div className="form-group form-check mb-1">
                         <label className="form-check-label">
