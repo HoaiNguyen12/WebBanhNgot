@@ -45,11 +45,24 @@ namespace WebCakeAPI.Controllers
         [HttpPost("checkUser")]
         public async Task<ActionResult<Users>> GetUserLogin(Users user)
         {
-            var users = _context.Users.Where(x => x.userName == user.userName && x.password == user.password).FirstOrDefault();
+            var users = _context.Users.Where(x => x.userName == user.userName && x.password == user.password && x.isAdmin == 0).FirstOrDefault();
 
             if (users == null)
             {
                 return  new Users();
+            }
+
+            return users;
+        }
+
+        [HttpPost("checkAdmin")]
+        public async Task<ActionResult<Users>> GetAdminLogin(Users user)
+        {
+            var users = _context.Users.Where(x => x.userName == user.userName && x.password == user.password && x.isAdmin == 1).FirstOrDefault();
+
+            if (users == null)
+            {
+                return new Users();
             }
 
             return users;

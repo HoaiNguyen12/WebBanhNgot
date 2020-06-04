@@ -6,7 +6,9 @@ export const actFetchLoginRequest = (login) => {
     return (dispatch) => {
         return callApi("Users/checkUser", "POST", login).then(res => {
             console.log(res);
-            dispatch(actFetchLogin(res.data))
+            if (res.data.userName && res.data.isAdmin == 0) {
+                dispatch(actFetchLogin(res.data))
+            }
         }).catch(e => {
             console.log(e);
         });
@@ -19,6 +21,35 @@ export const actFetchLogin = (user) => {
         user: user
     }
 }
+
+export const actFetchLoginRequest = (login) => {
+    console.log(login);
+    return (dispatch) => {
+        return callApi("Users/checkAdmin", "POST", login).then(res => {
+            console.log(res);
+            if (res.data.userName && res.data.isAdmin == 1) {
+                dispatch(actFetchLoginAdmin(res.data))
+            }
+        }).catch(e => {
+            console.log(e);
+        });
+    }
+}
+
+export const actFetchLoginAdmin = (user) => {
+    return {
+        type: types.LOGIN,
+        user: user
+    }
+}
+
+
+export const actLogout = () => {
+    return {
+        type: types.LOGOUT
+    }
+}
+
 
 export const actRegistrationRequest = (user) => {
     return (dispatch) => {

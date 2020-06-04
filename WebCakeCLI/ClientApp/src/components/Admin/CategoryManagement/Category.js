@@ -1,11 +1,12 @@
 ﻿import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actDeleteCategoryRequest } from '../../../actions/category';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { connect } from 'react-redux';
-import { actFetchDeleteProductRequest } from '../../../actions/product';
 
-class Product extends Component {
-    DeleteProduct(id) {
+class Category extends Component {
+    
+    DeleteCategory(id) {
         Swal.fire({
             title: 'Bạn có chắc chắn muốn xóa?',
             text: "Sau khi xóa sẽ không thể khôi phục",
@@ -18,10 +19,10 @@ class Product extends Component {
             buttonsStyling: false
         }).then((result) => {
             if (result.value) {
-                this.props.deleteProduct(id);
+                this.props.deleteCategory(id);
                 Swal.fire({
                     title: "Đã xóa",
-                    text: "Món đã được xóa",
+                    text: "Loại món đã được xóa",
                     icon: "success",
                     timer: 1000,
                     showCancelButton: false,
@@ -31,7 +32,7 @@ class Product extends Component {
             else {
                 Swal.fire({
                     title: 'Đã hủy',
-                    text: "Món không được xóa",
+                    text: "Loại món không được xóa",
                     icon: "error",
                     timer: 1000,
                     showCancelButton: false,
@@ -40,27 +41,25 @@ class Product extends Component {
             }
         })
     }
+
     render() {
         return (
             <tr>
-                <td scope="row">{this.props.stt}</td>
-                <td>{this.props.product.productName}</td>
-                <td><img className="product-img" src={"images/" + this.props.product.productImage}/></td>
-                <td>{this.props.product.productUnit}</td>
-                <td>{this.props.product.productDescriptions}</td>
-                <td>{this.props.product.productPrice}</td>
-                <td className="text-center"><Link to={"/admin/product/edit/" + this.props.product.productId}><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteProduct(this.props.product.productId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
-
+                <td scope="row">{this.props.stt + 1}</td>
+                <td>{this.props.category.categoryName}</td>
+                <td className="text-center"><Link to={"/admin/category/edit/" + this.props.category.categoryId}><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteCategory(this.props.category.categoryId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
             </tr>
         )
     }
 }
 
+
 var mapDispathToProps = (dispatch, props) => {
     return {
-        deleteProduct: (id) => {
-            dispatch(actFetchDeleteProductRequest(id));
+        deleteCategory: (product) => {
+            dispatch(actDeleteCategoryRequest(product))
         }
     }
 }
-export default connect(null, mapDispathToProps)(Product);
+
+export default connect(null, mapDispathToProps)(Category);

@@ -54,17 +54,6 @@ class ProductList extends Component {
         console.log(categoryId);
         this.props.fetchProduct(categoryId);
     }
-    showModal(category) {
-        this.setState({
-            showEditProductCategory: true,
-            category: category
-        });
-    }
-    hideModal() {
-        this.setState({
-            showEditProductCategory: false
-        });
-    }
     showCategories(categories) {
         //console.log(categories);
         var list = null;
@@ -97,7 +86,7 @@ class ProductList extends Component {
 
                             <div className="container">
                                 <h1 className="mt-3 mr-10">Quản lý sản phẩm </h1>
-                                <NavLink className="btn-info float-right btn-sm" to="/productForm/new/0" >Thêm sản phẩm</NavLink>
+                                <NavLink className="btn-info float-right btn-sm" to="/product/new/0" >Thêm sản phẩm</NavLink>
                                 <div className="modal" id="exampleModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                                     <div className="modal-dialog">
                                         <div className="modal-content">

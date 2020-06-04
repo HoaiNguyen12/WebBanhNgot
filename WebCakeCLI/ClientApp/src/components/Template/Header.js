@@ -21,6 +21,8 @@ class Header extends Component {
 	render() {
 		this.props.cartUpdated();
 		var { cart } = this.props;
+		var { login } = this.props;
+		const DangNhap = login.fullName ? login.fullName : "Đăng nhập"
 		
 		return (
 			<header className="top-navbar">
@@ -45,7 +47,7 @@ class Header extends Component {
 										</button>
 									</NavLink>
 								</li>
-								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/login" >Đăng nhập</NavLink></li>
+								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/login" >{DangNhap}</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/registration" >Đăng ký</NavLink></li>
 								
 							</ul>

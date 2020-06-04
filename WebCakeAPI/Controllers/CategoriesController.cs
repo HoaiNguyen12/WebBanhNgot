@@ -96,7 +96,12 @@ namespace WebCakeAPI.Controllers
             {
                 return NotFound();
             }
-
+            List<Product> list = await _context.Products.Where(x => x.categoryId == id).ToListAsync();
+            foreach(Product pro in list)
+            {
+                _context.Products.Remove(pro);
+            }
+            await _context.SaveChangesAsync();
             _context.Categorys.Remove(category);
             await _context.SaveChangesAsync();
 

@@ -21,10 +21,10 @@ class ProductForm extends Component {
     componentDidMount() {
         this.props.fetchCategory();
         const { type, id } = this.props?.match?.params;
-        console.log(this.props,'props')
+        //console.log(this.props,'props')
         if (type === 'edit') {
                 this.props.fetchProduct(id);
-                this.setState({ file: "images/" + this.props.product.productImage }); // API lấy sản phẩm qua id
+                //this.setState({ file: "images/" + this.props.products.productImage }); // API lấy sản phẩm qua id
                 //this.setState({ product : this.props.product })
         }
         //var id = useParams();
@@ -33,7 +33,6 @@ class ProductForm extends Component {
     }
 
     selectProductCategory(categories) {
-
         var list = null;
         if (categories.length > 0) {
             list = categories.map((category, index) => {
@@ -43,12 +42,31 @@ class ProductForm extends Component {
         return list;
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps && nextProps.products) {
+            var { products } = nextProps;
+            this.setState({
+                productDescriptions: products.productDescriptions,
+                productId: parseInt(products.productId),
+                productName: products.productName,
+                productPrice: parseInt(products.productPrice),
+                productUnit: products.productUnit,
+                categoryId: parseInt(products.categoryId),
+                productImage: products.productImage,
+                productSize: products.productSize
+            });
+
+            console.log(this.state, "receive");
+        }
+    }
+
     SaveProduct() {
         if (this.state.productId == 0) {
-            console.log(this.state);
+            console.log(this.state,"create");
             this.props.addProduct(this.state);
         }
         else {
+            console.log(this.state,"edit");
             this.props.editProduct(this.state);
         }
     }
@@ -60,6 +78,7 @@ class ProductForm extends Component {
         if ((name == "productPrice") || (name == "categoryId") ){
             value = parseInt(value);
         }
+        console.log(name + " " + value,"change")
         this.setState({
             [name]: value
         });
@@ -82,7 +101,7 @@ class ProductForm extends Component {
                 <form >
                     <div className="form-group">
                         <label style={{fontSize:'18px'}}>Tên sản phẩm: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={product?.productName} name="productName"/>
+                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productName} name="productName"/>
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
@@ -91,21 +110,21 @@ class ProductForm extends Component {
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Loại sản phẩm: </label>
-                        <select value={product?.categoryId} name="categoryId" onChange={this.onChange} id="abc">
+                        <select value={this.state.categoryId} name="categoryId" onChange={this.onChange} id="abc">
                             {this.selectProductCategory(categories)}
                         </select>
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Đơn vị tính: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={product?.productUnit} name="productUnit" />
+                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productUnit} name="productUnit" />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Mô tả: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={product?.productDescriptions} name="productDescriptions" />
+                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productDescriptions} name="productDescriptions" />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Gía: </label>
-                        <input type="number" className="form-control" onChange={this.onChange} value={product?.productPrice} name="productPrice" />
+                        <input type="number" className="form-control" onChange={this.onChange} value={this.state.productPrice} name="productPrice" />
                     </div>
                     <Link className="btn btn-primary mr-2" to="/admin/productList">Quay Lại</Link>
                     <button type="button" className="btn btn-primary" onClick={() => this.SaveProduct()}>Lưu Lại</button>
@@ -118,7 +137,7 @@ class ProductForm extends Component {
 var mapStateToProps = state => {
     return {
         categories: state.categories,
-        product: state.products
+        products: state.products
     }
 }
 

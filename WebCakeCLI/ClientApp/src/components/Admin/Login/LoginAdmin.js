@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { actFetchLoginRequest, actLogout } from '../../actions/login';
+﻿import React, { Component } from 'react';
+import { actFetchLoginAdminRequest, actLogout } from '../../actions/login';
 import { connect } from 'react-redux';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
-class Login extends Component {
+class LoginAdmin extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,11 +21,11 @@ class Login extends Component {
     }
 
     onHandleChange = (event) => {
-      //  debugger;
+        //  debugger;
         var target = event.target;
         var name = target.name;
         var value = target.value;
-        this.setState({ 
+        this.setState({
             [name]: value
         })
     }
@@ -44,7 +44,7 @@ class Login extends Component {
         this.setState({
             isLogin: true
         })
-        
+
     }
 
     componentDidUpdate() {
@@ -67,9 +67,9 @@ class Login extends Component {
     }
 
     render() {
-        return ( 
+        return (
             <div>
-                <div className="container-scroller" style={{fontSize:'13px'}}>
+                <div className="container-scroller" style={{ fontSize: '13px' }}>
                     <div className="container-fluid page-body-wrapper full-page-wrapper auth-page">
                         <div className="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
                             <div className="row w-100">
@@ -98,14 +98,14 @@ class Login extends Component {
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div className="form-group">
                                                 <button className="btn btn-secondary submit-btn btn-block" >Đăng nhập</button>
                                             </div>
                                             <div className="form-check-inline mb-2">
                                                 <label className="form-check-label">
                                                     <input type="checkbox" className="form-check-input" value="" />Forgot password
-                                                </label>  
+                                                </label>
                                             </div>
                                             <div className="form-group">
                                                 <button className="btn btn-link g-login w-100">
@@ -121,7 +121,7 @@ class Login extends Component {
                                             </div>
                                         </form>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -144,11 +144,11 @@ var mapStateToProps = state => {
 var mapDispathToProps = (dispatch, props) => {
     return {
         fetchLogin: (login) => {
-            dispatch(actFetchLoginRequest(login));
+            dispatch(actFetchLoginAdminRequest(login));
         },
         Logout: () => {
             dispatch(actLogout());
         }
     }
 }
-export default connect(mapStateToProps, mapDispathToProps)(Login);
+export default connect(mapStateToProps, mapDispathToProps)(LoginAdmin);

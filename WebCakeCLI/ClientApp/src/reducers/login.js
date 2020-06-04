@@ -15,8 +15,11 @@ const login = (state = initState, action) => {
             localStorage.setItem("user", JSON.stringify(state));
             return state;
         case types.REGISTRATION:
-            state.push(action.user);
+            //state.push(action.user);
             return [...state];
+        case types.LOGOUT:
+            state = {};
+            return state;
         default:
             return state;
     }
