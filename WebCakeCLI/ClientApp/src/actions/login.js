@@ -22,7 +22,7 @@ export const actFetchLogin = (user) => {
     }
 }
 
-export const actFetchLoginRequest = (login) => {
+export const actFetchLoginAdminRequest = (login) => {
     console.log(login);
     return (dispatch) => {
         return callApi("Users/checkAdmin", "POST", login).then(res => {

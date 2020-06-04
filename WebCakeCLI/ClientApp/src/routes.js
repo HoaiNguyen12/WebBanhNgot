@@ -5,7 +5,7 @@ import Product from './components/Product/Product';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 import Login from './components/Login/Login';
-import LoginAdmin from './components/Admin/LoginAdmin/LoginAdmin';
+import LoginAdmin from './components/Admin/Login/LoginAdmin';
 import Registration from './components/Login/Registration';
 import NotFound from './components/NotFound/NotFound';
 import Checkout from './components/Checkout/Checkout';

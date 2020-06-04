@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import { actFetchLoginAdminRequest, actLogout } from '../../actions/login';
+import { actFetchLoginAdminRequest, actLogout } from '../../../actions/login';
 import { connect } from 'react-redux';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
