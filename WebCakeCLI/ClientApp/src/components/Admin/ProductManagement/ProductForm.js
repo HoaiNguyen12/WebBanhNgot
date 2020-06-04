@@ -119,33 +119,33 @@ class ProductForm extends Component {
         const path = product?.productImage ? `images/${product?.productImage}` : `images/111.jpg` ;
         const title = this.props.match.params.type == "edit" ? "Sửa sản phẩm" : "Thêm sản phẩm" ;
         return(
-            <div className="container p-5">
+            <div className="container p-3">
                 <h1 style={{ textAlign: 'center' }}>{title}</h1>
                 <form >
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{fontSize:'18px'}}>Tên sản phẩm: </label>
                         <input type="text" className="form-control" onChange={this.onChange} value={this.state.productName} name="productName"/>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
                         <input type="file" onChange={this.handleChange} />
                         <img className="product-img" id="fileItem" src={this.state.file} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Loại sản phẩm: </label>
                         <select value={this.state.categoryId} name="categoryId" onChange={this.onChange} id="abc">
                             {this.selectProductCategory(categories)}
                         </select>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Đơn vị tính: </label>
                         <input type="text" className="form-control" onChange={this.onChange} value={this.state.productUnit} name="productUnit" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Mô tả: </label>
                         <input type="text" className="form-control" onChange={this.onChange} value={this.state.productDescriptions} name="productDescriptions" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Gía: </label>
                         <input type="number" className="form-control" onChange={this.onChange} value={this.state.productPrice} name="productPrice" />
                     </div>

@@ -9,7 +9,7 @@ class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userId: '',
+            userId: 0,
             userName: '',
             fullName: '',
             password:'',
@@ -56,7 +56,7 @@ class UserForm extends Component {
         e.preventDefault();
         var { userId,userName, fullName,userAddress, userPhone, password,isAdmin } = this.state;
         var user = {
-                userId: userId,
+                userId:  parseInt(userId),
                 userName: userName,
                 fullName: fullName,
                 password: password,
@@ -69,57 +69,38 @@ class UserForm extends Component {
         }else {
             this.props.onAddUser(user);
         }
-        window.open('/admin/orderList', '_self')
+        window.open('/admin/userList', '_self')
         
     }
 
-    /*componentDidUpdate() {
-        const { login } = this.props;
-        if (Object.keys(login).length !== 0) {
-            window.open('/admin/orderList', '_self')
-        }
-        else {
-            if (this.state.isLogin) {
-                Swal.fire({
-                    title: "Đăng nhập sai",
-                    text: "Vui lòng thử lại",
-                    icon: "error",
-                    timer: 1000,
-                    showCancelButton: false,
-                    showConfirmButton: false
-                });
-            }
-        }
-    }*/
-    
-
+   
     render(){
         var { userId,userName, fullName,userAddress, userPhone, password,isAdmin } = this.state;
         return(
-            <div className="container p-5">
+            <div className="container p-3">
                 <h1 style={{textAlign: 'center'}}>{userId !== '' ? 'Cập nhật người dùng' : 'Thêm mới người dùng'}</h1>
                 <form onSubmit={this.onSave}>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{fontSize:'18px'}}>User Name: </label>
                         <input type="text" className="form-control" name="userName" value={userName} onChange={this.onChange}/>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{fontSize:'18px'}}>Full Name: </label>
                         <input type="text" className="form-control" name="fullName" value={fullName} onChange={this.onChange}/>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{fontSize:'18px'}}>Password:</label>
                         <input type="password" className="form-control" placeholder="Enter password" id="pwd" name="password" value={password} onChange={this.onChange}/>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{fontSize:'18px'}}>Phone: </label>
                         <input type="number" className="form-control" name="userPhone" value={userPhone} onChange={this.onChange}/>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <label style={{fontSize:'18px'}}>Address: </label>
                         <input type="text" className="form-control" name="userAddress" value={userAddress} onChange={this.onChange}/>
                     </div>
-                    <div className="form-group form-check">
+                    <div className="form-group form-check mb-1">
                         <label className="form-check-label">
                         <input className="form-check-input" type="checkbox" style={{fontSize:'18px'}} name="isAdmin" value={isAdmin} onChange={this.onChange}/> Là quản trị viên
                         </label>
