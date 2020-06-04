@@ -70,10 +70,4 @@ var mapStateToProps = state => {
 	}
 }
 
-var mapDispathToProps = (dispatch, props) => {
-	return {
-		
-	}
-}
-
-export default connect(mapStateToProps, mapDispathToProps)(Header);
+export default connect(mapStateToProps, null)(Header);

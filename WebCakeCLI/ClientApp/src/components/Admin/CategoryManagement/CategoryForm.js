@@ -71,7 +71,7 @@ class categoryForm extends Component {
                 <form >
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Tên loại sản phẩm: </label>
-                        <input type="text" value={this.state.categoryName} name="categoryName" onChange={this.onChange} className="form-control" />
+                        <input type="text" value={this.state.categoryName} name="categoryName" onChange={this.onChange} className="form-control" required />
                     </div>
                     <Link className="btn btn-primary mr-2" to="/admin/categoryList">Quay Lại</Link>
                     <button type="button" className="btn btn-primary" onClick={() => this.SaveCategory()}>Lưu Lại</button>

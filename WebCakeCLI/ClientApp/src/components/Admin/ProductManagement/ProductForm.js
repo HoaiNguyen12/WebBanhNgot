@@ -123,8 +123,8 @@ class ProductForm extends Component {
                 <h1 style={{ textAlign: 'center' }}>{title}</h1>
                 <form >
                     <div className="form-group mb-1">
-                        <label style={{fontSize:'18px'}}>Tên sản phẩm: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productName} name="productName"/>
+                        <label style={{ fontSize: '18px' }}>Tên sản phẩm: </label>
+                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productName} name="productName" required />
                     </div>
                     <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
@@ -139,15 +139,15 @@ class ProductForm extends Component {
                     </div>
                     <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Đơn vị tính: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productUnit} name="productUnit" />
+                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productUnit} name="productUnit" required />
                     </div>
                     <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Mô tả: </label>
-                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productDescriptions} name="productDescriptions" />
+                        <input type="text" className="form-control" onChange={this.onChange} value={this.state.productDescriptions} name="productDescriptions" required />
                     </div>
                     <div className="form-group mb-1">
                         <label style={{ fontSize: '18px' }}>Gía: </label>
-                        <input type="number" className="form-control" onChange={this.onChange} value={this.state.productPrice} name="productPrice" />
+                        <input type="number" className="form-control" onChange={this.onChange} value={this.state.productPrice} name="productPrice" required />
                     </div>
                     <Link className="btn btn-primary mr-2" to="/admin/productList">Quay Lại</Link>
                     <button type="button" className="btn btn-primary" onClick={() => this.SaveProduct()}>Lưu Lại</button>
