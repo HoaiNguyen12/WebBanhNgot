@@ -43,6 +43,21 @@ namespace WebCakeAPI.Controllers
             return products;
         }
 
+        [HttpGet("get/{id}")]
+        public async Task<ActionResult<Category>> GetCategoryDetail(int id)
+        {
+
+            if (id == 0)
+                id = _context.Categorys.Select(o => o.categoryId).FirstOrDefault();
+            var products = await _context.Categorys.Where(o => o.categoryId == id).FirstOrDefaultAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            return products;
+        }
+
         // PUT: api/Categories/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -100,8 +115,8 @@ namespace WebCakeAPI.Controllers
             foreach(Product pro in list)
             {
                 _context.Products.Remove(pro);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
             _context.Categorys.Remove(category);
             await _context.SaveChangesAsync();
 

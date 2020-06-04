@@ -37,7 +37,7 @@ namespace WebCakeAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("AllowAll");

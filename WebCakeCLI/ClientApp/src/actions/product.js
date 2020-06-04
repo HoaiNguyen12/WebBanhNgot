@@ -68,8 +68,7 @@ export const actAddProduct = (product) => {
 
 export const actEditProductRequest = (product) => {
     return (dispatch) => {
-        return callApi("products/" + product.productID, "PUT", product).then(res => {
-            //console.log(id);
+        return callApi("products/" + product.productId, "PUT", product).then(res => {
             dispatch(actEditProduct(res.data))
         });
     }

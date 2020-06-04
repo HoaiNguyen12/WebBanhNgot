@@ -76,6 +76,14 @@ namespace WebCakeAPI.Controllers
         // POST: api/Products
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPost("abc")]
+        public async Task<ActionResult<Product>> PostImage(IFormFile product)
+        {
+            
+
+            return Ok();
+        }
+
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {

@@ -37,6 +37,7 @@ class categoryForm extends Component {
             console.log(this.state, "edit");
             this.props.editCategory(this.state);
         }
+        window.open('/admin/categoryList','_self');
     }
 
     onChange = (e) => {
@@ -62,7 +63,8 @@ class categoryForm extends Component {
         }
     }
 
-    render(){
+    render() {
+        console.log(this.props);
         return(
             <div className="container p-5">
                 <h1 style={{textAlign: 'center'}}>Thêm loại sản phẩm</h1>
@@ -93,8 +95,8 @@ var mapDispathToProps = (dispatch, props) => {
         addCategory: (id) => {
             dispatch(actAddCategoryRequest(id));
         },
-        editCategory: (id) => {
-            dispatch(actEditCategoryRequest(id));
+        editCategory: (category) => {
+            dispatch(actEditCategoryRequest(category));
         }
     }
 }
