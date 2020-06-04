@@ -23,7 +23,7 @@ class Header extends Component {
 		var { cart } = this.props;
 		var { login } = this.props;
 		const DangNhap = login.fullName ? login.fullName : "Đăng nhập"
-		
+		var duongdan = login.userName ? "/cart" : "/login";
 		return (
 			<header className="top-navbar">
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,7 +41,8 @@ class Header extends Component {
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about" >About</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact" >Contact</NavLink></li>
 								<li className="nav-item">
-									<Link className="nav-link" activeClassName="active" to="/cart" >
+									<Link className="nav-link" activeClassName="active" 
+									  to={duongdan} >
 										<button type="button" className="w3view-cart" >
 											<i className="fa fa-shopping-cart fa-1x" >{this.showTotalQuantity(cart)}</i> Shopping Cart
 										</button>

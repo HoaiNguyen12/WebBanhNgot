@@ -28,6 +28,7 @@ class CustomerInfo extends Component {
     }
     
     render() {
+        console.log(this.state);
         var { note, pay } = this.state;
         var { fullName, userPhone, userAddress } = this.props.login;
         return (

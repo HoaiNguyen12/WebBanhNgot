@@ -9,7 +9,7 @@ class UserForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userId: '',
+            userId: 0,
             userName: '',
             fullName: '',
             password:'',
@@ -56,7 +56,7 @@ class UserForm extends Component {
         e.preventDefault();
         var { userId,userName, fullName,userAddress, userPhone, password,isAdmin } = this.state;
         var user = {
-                userId: userId,
+                userId:  parseInt(userId),
                 userName: userName,
                 fullName: fullName,
                 password: password,
@@ -69,30 +69,11 @@ class UserForm extends Component {
         }else {
             this.props.onAddUser(user);
         }
-        window.open('/admin/orderList', '_self')
+        window.open('/admin/userList', '_self')
         
     }
 
-    /*componentDidUpdate() {
-        const { login } = this.props;
-        if (Object.keys(login).length !== 0) {
-            window.open('/admin/orderList', '_self')
-        }
-        else {
-            if (this.state.isLogin) {
-                Swal.fire({
-                    title: "Đăng nhập sai",
-                    text: "Vui lòng thử lại",
-                    icon: "error",
-                    timer: 1000,
-                    showCancelButton: false,
-                    showConfirmButton: false
-                });
-            }
-        }
-    }*/
-    
-
+   
     render(){
         var { userId,userName, fullName,userAddress, userPhone, password,isAdmin } = this.state;
         return(
