@@ -50,7 +50,7 @@ class LoginAdmin extends Component {
     componentDidUpdate() {
         const { login } = this.props;
         if (Object.keys(login).length !== 0) {
-            window.open('/', '_self')
+            window.open('/admin/orderList', '_self')
         }
         else {
             if (this.state.isLogin) {
