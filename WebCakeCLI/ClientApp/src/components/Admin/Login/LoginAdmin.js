@@ -49,12 +49,15 @@ class LoginAdmin extends Component {
 
     componentDidUpdate() {
         debugger;
-        const { login } = this.props;
-        if (Object.keys(login).length !== 0) {
+        const { loginAdmin } = this.props;
+        if (Object.keys(loginAdmin).length !== 0) {
             window.open('/admin/orderList', '_self')
         }
         else {
             if (this.state.isLogin) {
+                this.setState({
+                    isLogin: false
+                });
                 Swal.fire({
                     title: "Đăng nhập sai",
                     text: "Vui lòng thử lại",
@@ -138,7 +141,7 @@ class LoginAdmin extends Component {
 }
 var mapStateToProps = state => {
     return {
-        login: state.login
+        loginAdmin: state.loginAdmin
     }
 }
 
