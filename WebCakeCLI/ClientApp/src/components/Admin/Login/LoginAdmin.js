@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import { actFetchLoginAdminRequest, actLogout } from '../../../actions/login';
+import { actFetchLoginAdminRequest, actLogoutAdmin } from '../../../actions/login';
 import { connect } from 'react-redux';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
@@ -148,7 +148,7 @@ var mapDispathToProps = (dispatch, props) => {
             dispatch(actFetchLoginAdminRequest(login));
         },
         Logout: () => {
-            dispatch(actLogout());
+            dispatch(actLogoutAdmin());
         }
     }
 }

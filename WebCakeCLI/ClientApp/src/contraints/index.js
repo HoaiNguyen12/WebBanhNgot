@@ -1,6 +1,8 @@
 export const GET_ALL_PRODUCT = 'GET_ALL_PRODUCT';
 export const LOGIN = 'LOGIN';
+export const LOGIN_ADMIN = 'LOGIN_ADMIN';
 export const LOGOUT = 'LOGOUT';
+export const LOGOUT_ADMIN = 'LOGOUT_ADMIN';
 export const REGISTRATION = 'REGISTRATION';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';
 export const FETCH_CATEGORY = 'FETCH_CATEGORY';

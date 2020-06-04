@@ -9,6 +9,7 @@ import itemEditBill from './itemEditBill';
 import itemEditUser from './itemEditUser';
 import itemEditProduct from './itemEditProduct';
 import itemEditCategory from './itemEditCategory';
+import loginAdmin from './loginAdmin';
 
 const myReducer = combineReducers({
     products,
@@ -20,7 +21,8 @@ const myReducer = combineReducers({
     itemEditBill,
     itemEditUser,
     itemEditProduct,
-    itemEditCategory
+    itemEditCategory,
+    loginAdmin
 });
 
 export default myReducer;
