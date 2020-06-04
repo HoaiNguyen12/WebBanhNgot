@@ -7,6 +7,8 @@ import bills from './bill';
 import users from './user';
 import itemEditBill from './itemEditBill';
 import itemEditUser from './itemEditUser';
+import itemEditProduct from './itemEditProduct';
+import itemEditCategory from './itemEditCategory';
 
 const myReducer = combineReducers({
     products,
@@ -16,7 +18,9 @@ const myReducer = combineReducers({
     bills,
     users,
     itemEditBill,
-    itemEditUser
+    itemEditUser,
+    itemEditProduct,
+    itemEditCategory
 });
 
 export default myReducer;

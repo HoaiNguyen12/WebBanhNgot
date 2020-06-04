@@ -23,7 +23,7 @@ class ProductForm extends Component {
         const { type, id } = this.props?.match?.params;
         //console.log(this.props,'props')
         if (type === 'edit') {
-                this.props.fetchProduct(id);
+          this.props.fetchProduct(id);
                 //this.setState({ file: "images/" + this.props.products.productImage }); // API lấy sản phẩm qua id
                 //this.setState({ product : this.props.product })
         }
@@ -43,30 +43,30 @@ class ProductForm extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        //if (nextProps && nextProps.products) {
-        //    var { products } = nextProps;
-        //    this.setState({
-        //        productDescriptions: products.productDescriptions,
-        //        productId: parseInt(products.productId),
-        //        productName: products.productName,
-        //        productPrice: parseInt(products.productPrice),
-        //        productUnit: products.productUnit,
-        //        categoryId: parseInt(products.categoryId),
-        //        productImage: products.productImage,
-        //        productSize: products.productSize
-        //    });
+        if (nextProps && nextProps.itemEditProduct) {
+            var { itemEditProduct } = nextProps;
+            this.setState({
+                productDescriptions: itemEditProduct.productDescriptions,
+                productId: parseInt(itemEditProduct.productId),
+                productName: itemEditProduct.productName,
+                productPrice: parseInt(itemEditProduct.productPrice),
+                productUnit: itemEditProduct.productUnit,
+                categoryId: parseInt(itemEditProduct.categoryId),
+                productImage: itemEditProduct.productImage,
+                productSize: itemEditProduct.productSize
+            });
 
-        //    console.log(this.state, "receive");
-        //}
+            console.log(this.state, "receive");
+        }
     }
 
     SaveProduct() {
         if (this.state.productId == 0) {
-            console.log(this.state,"create");
+            console.log(this.state, "create");
             this.props.addProduct(this.state);
         }
         else {
-            console.log(this.state,"edit");
+            console.log(this.state, "edit");
             this.props.editProduct(this.state);
         }
         window.open('/admin/productList', '_self')
@@ -93,6 +93,8 @@ class ProductForm extends Component {
     }
 
     render() {
+        console.log(this.props);
+        console.log(this.state);
         const { categories, product } = this.props;
         const path = product?.productImage ? `images/${product?.productImage}` : `images/111.jpg` ;
         const title = this.props.match.params.type == "edit" ? "Sửa sản phẩm" : "Thêm sản phẩm" ;
@@ -138,7 +140,7 @@ class ProductForm extends Component {
 var mapStateToProps = state => {
     return {
         categories: state.categories,
-        products: state.products
+        itemEditProduct: state.itemEditProduct
     }
 }
 

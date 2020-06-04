@@ -85,7 +85,7 @@ class ProductList extends Component {
                         <div className="col-9" >
 
                             <div className="container">
-                                <h1 className="mt-3 mr-10">Quản lý sản phẩm <NavLink className="btn-info float-right btn-sm" to="/product/new/0" >Thêm sản phẩm</NavLink></h1>
+                                <h1 className="mt-3 mr-10">Quản lý sản phẩm <NavLink className="btn-info float-right btn-sm" to="/admin/product/create/0" >Thêm sản phẩm</NavLink></h1>
                                 <h1/>
                                 <div className="modal" id="exampleModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                                     <div className="modal-dialog">

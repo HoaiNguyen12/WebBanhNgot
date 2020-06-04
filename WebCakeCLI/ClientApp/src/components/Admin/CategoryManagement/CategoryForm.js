@@ -51,11 +51,11 @@ class categoryForm extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps && nextProps.categories) {
-            var { categories } = nextProps;
+        if (nextProps && nextProps.itemEditCategory) {
+            var { itemEditCategory } = nextProps;
             this.setState({
-                categoryId: parseInt(categories.categoryId),
-                categoryName: categories.categoryName
+                categoryId: parseInt(itemEditCategory.categoryId),
+                categoryName: itemEditCategory.categoryName
             });
 
             console.log(this.state, "receive");
@@ -81,7 +81,7 @@ class categoryForm extends Component {
 
 var mapStateToProps = state => {
     return {
-        categories: state.categories
+        itemEditCategory: state.itemEditCategory
     }
 }
 

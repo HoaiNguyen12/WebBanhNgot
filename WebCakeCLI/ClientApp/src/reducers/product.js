@@ -31,8 +31,6 @@ const product = (state = initState, action) => {
         case types.ADD_PRODUCT:
             state.push(action.product);
             return [...state];
-        case types.DETAIL_PRODUCT:
-            return action.product;
         default :
             return state
     }
