@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actFetchCategoryRequest } from '../../../actions/category';
-import { actFetchProductRequest, actAddProductRequest, actEditProductRequest } from '../../../actions/product';
+import { actFetchProductRequest, actAddProductRequest, actEditProductRequest, actProductImageRequest } from '../../../actions/product';
 
 class ProductForm extends Component {
     constructor(props) {
@@ -15,7 +15,9 @@ class ProductForm extends Component {
             productUnit: '',
             categoryId: 1,
             productImage: '111.jpg',
-            productSize: 'nhỏ'
+            productSize: 'nhỏ',
+            file: '111.jpg',
+            formData: {}
         };
     }
     componentDidMount() {
@@ -52,8 +54,9 @@ class ProductForm extends Component {
                 productPrice: parseInt(itemEditProduct.productPrice),
                 productUnit: itemEditProduct.productUnit,
                 categoryId: parseInt(itemEditProduct.categoryId),
-                productImage: itemEditProduct.productImage,
-                productSize: itemEditProduct.productSize
+                productImage: "images/" + itemEditProduct.productImage,
+                productSize: itemEditProduct.productSize,
+                file: "images/" + itemEditProduct.productImage
             });
 
             console.log(this.state, "receive");
@@ -64,10 +67,21 @@ class ProductForm extends Component {
         if (this.state.productId == 0) {
             console.log(this.state, "create");
             this.props.addProduct(this.state);
+            if (this.state.formData != '') {
+                console.log(this.state.formData,"create");
+                this.props.imageProduct(this.state.formData);
+            }
         }
         else {
             console.log(this.state, "edit");
             this.props.editProduct(this.state);
+            if (this.state.formData != '') {
+                var files = this.state.formData;
+                var formData1 = new FormData();
+                formData1.append('file', files, files.name);
+                console.log(formData1);
+                this.props.imageProduct(formData1);
+            }
         }
         window.open('/admin/productList', '_self')
     }
@@ -79,7 +93,6 @@ class ProductForm extends Component {
         if ((name == "productPrice") || (name == "categoryId") ){
             value = parseInt(value);
         }
-        console.log(name + " " + value,"change")
         this.setState({
             [name]: value
         });
@@ -88,13 +101,20 @@ class ProductForm extends Component {
     handleChange = (event) => {
 
         this.setState({
-            file: URL.createObjectURL(event.target.files[0])
+            file: URL.createObjectURL(event.target.files[0]),
+            productImage: event.target.files[0].name
         });
+        var files = event.target.files[0];
+        var formData1 = new FormData();
+        formData1.append('file', files, files.name);
+        console.log(event.target.files[0],"event");
+        this.setState({
+            formData: event.target.files[0]
+        })
+
     }
 
     render() {
-        console.log(this.props);
-        console.log(this.state);
         const { categories, product } = this.props;
         const path = product?.productImage ? `images/${product?.productImage}` : `images/111.jpg` ;
         const title = this.props.match.params.type == "edit" ? "Sửa sản phẩm" : "Thêm sản phẩm" ;
@@ -109,7 +129,7 @@ class ProductForm extends Component {
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
                         <input type="file" onChange={this.handleChange} />
-                        <img className="product-img" id="fileItem" src={this.state.productImage} />
+                        <img className="product-img" id="fileItem" src={this.state.file} />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Loại sản phẩm: </label>
@@ -157,6 +177,9 @@ var mapDispathToProps = (dispatch, props) => {
         },
         editProduct: (product) => {
             dispatch(actEditProductRequest(product))
+        },
+        imageProduct: (file) => {
+            dispatch(actProductImageRequest(file))
         }
     }
 }

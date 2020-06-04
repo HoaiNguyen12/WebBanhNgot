@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -76,11 +77,32 @@ namespace WebCakeAPI.Controllers
         // POST: api/Products
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost("abc")]
-        public async Task<ActionResult<Product>> PostImage(IFormFile product)
+        [HttpPost("uploadFile")]
+        public async Task<ActionResult> PostImage(IFormFile file)
         {
-            
 
+            long size = file.Length;
+
+            if (file.Length > 0)
+            {
+                var path = Path.Combine(Directory.GetCurrentDirectory().Replace("WebCakeAPI", @"WebCakeCLI\ClientApp\public\images"), Path.GetFileName(file.FileName));
+                if (!System.IO.File.Exists(path))
+                    using (var stream = System.IO.File.Create(path))
+                    {
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+                    }
+
+            }
+                //var filePath = Path.GetTempFileName();
+
+                //    using (var stream = System.IO.File.Create(filePath))
+                //    {
+                //        await file.CopyToAsync(stream);
+                //    }
+                //}
+            
             return Ok();
         }
 
