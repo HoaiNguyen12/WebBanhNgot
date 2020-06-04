@@ -54,6 +54,9 @@ class Login extends Component {
         }
         else {
             if (this.state.isLogin) {
+                this.setState({
+                    isLogin: false
+                });
                 Swal.fire({
                     title: "Đăng nhập sai",
                     text: "Vui lòng thử lại",
@@ -117,7 +120,7 @@ class Login extends Component {
                                             </div>
                                             <div className="text-block text-center my-3" >
                                                 <span className="text-small font-weight-semibold">Not a member ?</span>
-                                                <Link href="register.html" className="text-black text-small" to="/registration">Create new account</Link>
+                                                <Link to="/registration" className="text-black text-small" to="/registration">Create new account</Link>
                                             </div>
                                         </form>
                                     </div>

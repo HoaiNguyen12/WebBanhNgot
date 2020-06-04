@@ -3,16 +3,26 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-    return (
-
-        // Show the component only when the user is logged in
-        // Otherwise, redirect the user to /signin page
-        <Route {...rest} render={props => (
-            this.props.login.isAdmin == 1 ?
-                <Component {...props} />
-                : <Redirect to="/login" />
-        )} />
-    );
+    return <Route
+        {...rest}
+        render={
+            props => {
+                return localStorage.getItem("admin") ?
+                    (
+                        <Component {...props} />
+                    )
+                    :
+                    (
+                        <Redirect
+                            to={{
+                                pathname: "/admin/login",
+                                state: { from: props.location }
+                            }}
+                        />
+                    )
+            }
+        }
+    />
 };
 
 var mapStateToProps = state => {

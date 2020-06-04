@@ -80,3 +80,12 @@ export const actEditProduct = (product) => {
         product: product
     }
 }
+
+
+export const actProductImageRequest = (file) => {
+    return (dispatch) => {
+        return callApi("products/uploadFile", "POST", file).then(res => {
+            //dispatch(actEditProduct(res.data))
+        });
+    }
+}

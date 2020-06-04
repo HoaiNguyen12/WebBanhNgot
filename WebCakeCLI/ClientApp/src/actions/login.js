@@ -36,13 +36,19 @@ export const actFetchLoginAdminRequest = (login) => {
     }
 }
 
-export const actFetchLoginAdmin = (user) => {
+export const actFetchLoginAdmin = (admin) => {
     return {
-        type: types.LOGIN,
-        user: user
+        type: types.LOGIN_ADMIN,
+        admin: admin
     }
 }
 
+
+export const actLogoutAdmin = () => {
+    return {
+        type: types.LOGOUT_ADMIN
+    }
+}
 
 export const actLogout = () => {
     return {
