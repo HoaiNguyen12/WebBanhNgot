@@ -15,7 +15,7 @@ class LoginAdmin extends Component {
     }
 
     componentWillMount() {
-        if (this.props.login) {
+        if (this.props.loginAdmin) {
             this.props.Logout();
         }
     }
