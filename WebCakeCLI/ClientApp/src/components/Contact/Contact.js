@@ -7,6 +7,7 @@ export default class Contact extends Component {
     render() {
         return (
             <div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
             <Header/>
             <div className="all-page-title page-breadcrumb">
 		<div className="container text-center">
@@ -31,19 +32,15 @@ export default class Contact extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-12">
+                            <div className="col-lg-12 text-center">
                                 
                                 <strong>Support:</strong>   <a href="mailto:Hoainguyen.1128@gmail.com">Support@example.com</a><br />
-                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFast-food-261690751401405%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=350&height=100&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                                    ></iframe>
-
+                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFast-food-261690751401405&tabs=timeline&width=340&height=238&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="238" style={{ border: "none", overflow: "hidden" }} scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-                // End Contact
 
-                //Contact info
                 <div className="contact-imfo-box">
                     <div className="container">
                         <div className="row">

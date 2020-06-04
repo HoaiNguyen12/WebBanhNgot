@@ -38,7 +38,6 @@ class Header extends Component {
 							<ul className="navbar-nav ml-auto" > 
 								<li className="nav-item" ><NavLink className="nav-link" exact activeClassName="active" to="/" >Home</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/menu" >Menu</NavLink></li>
-								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/about" >About</NavLink></li>
 								<li className="nav-item"><NavLink className="nav-link" activeClassName="active" to="/contact" >Contact</NavLink></li>
 								<li className="nav-item">
 									<Link className="nav-link" activeClassName="active" 
