@@ -43,7 +43,7 @@ class Product extends Component {
     render() {
         return (
             <tr>
-                <td scope="row">{this.props.stt}</td>
+                <td scope="row" className="text-center">{this.props.stt + 1}</td>
                 <td>{this.props.product.productName}</td>
                 <td><img className="product-img" src={"images/" + this.props.product.productImage}/></td>
                 <td>{this.props.product.productUnit}</td>

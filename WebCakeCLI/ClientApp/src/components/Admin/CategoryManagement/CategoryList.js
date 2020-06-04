@@ -38,7 +38,7 @@ class CategoryList extends Component {
                                 <h1 className="mt-3 pb-20">Quản lý loại sản phẩm <NavLink className="btn-info float-right btn-sm" to="/admin/category/create/0" >Thêm sản phẩm</NavLink>
                                 </h1>
                                 <h1/>
-                                <table className="table table-bordered pt-20">
+                                <table className="table table-striped table-bordered pt-20">
                                     <thead>
                                         <tr>
                                             <th className="text-center">STT</th>

@@ -45,7 +45,7 @@ class Category extends Component {
     render() {
         return (
             <tr>
-                <td scope="row">{this.props.stt + 1}</td>
+                <td scope="row" className="text-center">{this.props.stt + 1}</td>
                 <td>{this.props.category.categoryName}</td>
                 <td className="text-center"><Link to={"/admin/category/edit/" + this.props.category.categoryId}><i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></Link>|<i onClick={() => this.DeleteCategory(this.props.category.categoryId)} className="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
             </tr>

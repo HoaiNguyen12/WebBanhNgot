@@ -6,7 +6,7 @@ class Bill extends Component {
         console.log(this.props);
         return (
             <tr>
-                <th>{this.props.stt + 1}</th>
+                <td className="text-center">{this.props.stt + 1}</td>
                 <td >{this.props.bill.billId}</td>
                 <td >{this.props.bill.userId}</td>
                 <td >{this.props.bill.billDate}</td>

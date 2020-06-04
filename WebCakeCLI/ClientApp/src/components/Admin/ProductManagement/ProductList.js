@@ -146,16 +146,16 @@ class ProductList extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <table className="table table-bordered" style={{ width: '100%' }} >
+                                <table className="table table-striped table-bordered" style={{ width: '100%' }} >
                                     <thead>
                                         <tr style={{ height: '1em' }}>
-                                            <th style={{ width: '5%' }}>STT</th>
-                                            <th style={{ width: '20%' }}>Tên sản phẩm</th>
-                                            <th style={{ width: '20%' }}>Hình ảnh</th>
-                                            <th style={{ width: '10%' }}>ĐVT</th>
-                                            <th style={{ width: '30%' }}>Mô tả</th>
-                                            <th style={{ width: '5%' }}>Gía</th>
-                                            <th style={{ width: '10%' }}>Thao tác</th>
+                                            <th className="text-center" style={{ width: '5%' }}>STT</th>
+                                            <th className="text-center" style={{ width: '20%' }}>Tên sản phẩm</th>
+                                            <th className="text-center" style={{ width: '20%' }}>Hình ảnh</th>
+                                            <th className="text-center" style={{ width: '10%' }}>ĐVT</th>
+                                            <th className="text-center" style={{ width: '30%' }}>Mô tả</th>
+                                            <th className="text-center" style={{ width: '5%' }}>Gía</th>
+                                            <th className="text-center" style={{ width: '10%' }}>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>

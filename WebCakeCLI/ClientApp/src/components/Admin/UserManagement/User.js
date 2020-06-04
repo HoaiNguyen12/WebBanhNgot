@@ -43,10 +43,10 @@ class User extends Component {
     render() {
         return (
             <tr>
-                <th>{this.props.stt + 1}</th>
+                <th className="text-center">{this.props.stt + 1}</th>
                 <td >{this.props.user.fullName}</td>
                 <td >{this.props.user.userName}</td>
-                <td >{this.props.user.userPhone}</td>
+                <td className="text-center">{this.props.user.userPhone}</td>
                 <td >{this.props.user.userAddress}</td>
                 <td >{this.props.user.isAdmin == 1 ? 'Quản trị' : 'Khách hàng'}</td>
                 <td className="text-center">
