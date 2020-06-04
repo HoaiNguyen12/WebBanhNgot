@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+﻿import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { actAddToCart } from '../../actions/cart';
 
@@ -33,7 +33,6 @@ class Product extends Component {
         }, 2000);
 	}
 
-    
 
 	render() {
 		return (
@@ -43,7 +42,7 @@ class Product extends Component {
 						<img src={"images/" + this.props.product.productImage} alt={this.props.product.pro} className="pro-image-front" key={this.props.keyId} />
 						<i className="add-to-cart" className="fa fa-plus" onClick={() => this.addToCart(this.props.product, this.props.keyId)} />
 						<h2>{this.props.product.productName}</h2>
-						<p>$ { this.props.product.productPrice }</p>
+						<p>{ this.props.product.productPrice } VNĐ</p>
 				</div>
 			</div>
 			</div >

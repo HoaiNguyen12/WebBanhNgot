@@ -14,7 +14,7 @@ class ProductForm extends Component {
             productPrice: 0,
             productUnit: '',
             categoryId: 1,
-            productImage: '',
+            productImage: '111.jpg',
             productSize: 'nhỏ'
         };
     }
@@ -43,21 +43,21 @@ class ProductForm extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps && nextProps.products) {
-            var { products } = nextProps;
-            this.setState({
-                productDescriptions: products.productDescriptions,
-                productId: parseInt(products.productId),
-                productName: products.productName,
-                productPrice: parseInt(products.productPrice),
-                productUnit: products.productUnit,
-                categoryId: parseInt(products.categoryId),
-                productImage: products.productImage,
-                productSize: products.productSize
-            });
+        //if (nextProps && nextProps.products) {
+        //    var { products } = nextProps;
+        //    this.setState({
+        //        productDescriptions: products.productDescriptions,
+        //        productId: parseInt(products.productId),
+        //        productName: products.productName,
+        //        productPrice: parseInt(products.productPrice),
+        //        productUnit: products.productUnit,
+        //        categoryId: parseInt(products.categoryId),
+        //        productImage: products.productImage,
+        //        productSize: products.productSize
+        //    });
 
-            console.log(this.state, "receive");
-        }
+        //    console.log(this.state, "receive");
+        //}
     }
 
     SaveProduct() {
@@ -69,6 +69,7 @@ class ProductForm extends Component {
             console.log(this.state,"edit");
             this.props.editProduct(this.state);
         }
+        window.open('/admin/productList', '_self')
     }
 
     onChange = (e) => {
@@ -106,7 +107,7 @@ class ProductForm extends Component {
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Hình ảnh: </label>
                         <input type="file" onChange={this.handleChange} />
-                        <img className="product-img" id="fileItem" src={path} />
+                        <img className="product-img" id="fileItem" src={this.state.productImage} />
                     </div>
                     <div className="form-group">
                         <label style={{ fontSize: '18px' }}>Loại sản phẩm: </label>

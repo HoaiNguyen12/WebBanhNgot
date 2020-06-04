@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavabarAdmin from './../NavbarAdmin';
 import LeftAdmin from './../LeftAdmin';
 import Category from './Category';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { actFetchCategoryRequest } from '../../../actions/category';
 
@@ -20,6 +20,7 @@ class CategoryList extends Component {
     }
 
     componentWillMount() {
+        
         this.props.fetchCategory();
     }
     render() {
@@ -34,9 +35,10 @@ class CategoryList extends Component {
                         </div>
                         <div className="col-9" >
                             <div className="container">
-                                <h1 className="mt-3">Quản lý loại sản phẩm</h1>
-                                <Link type="button" className="btn btn-info btn-sm mb-3" to="/admin/category/create/0">Thêm loại sản phẩm</Link>
-                                <table className="table table-bordered">
+                                <h1 className="mt-3 pb-20">Quản lý loại sản phẩm <NavLink className="btn-info float-right btn-sm" to="/admin/category/create/0" >Thêm sản phẩm</NavLink>
+                                </h1>
+                                <h1/>
+                                <table className="table table-bordered pt-20">
                                     <thead>
                                         <tr>
                                             <th className="text-center">STT</th>
@@ -60,7 +62,8 @@ class CategoryList extends Component {
 
 var mapStateToProps = state => {
     return {
-        categories: state.categories
+        categories: state.categories,
+        login: state.login
     }
 }
 

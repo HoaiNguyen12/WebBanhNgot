@@ -4,6 +4,7 @@ export const LOGOUT = 'LOGOUT';
 export const REGISTRATION = 'REGISTRATION';
 export const FETCH_PRODUCT = 'FETCH_PRODUCT';
 export const FETCH_CATEGORY = 'FETCH_CATEGORY';
+export const GET_CATEGORY = 'GET_CATEGORY';
 export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const EDIT_CATEGORY = 'EDIT_CATEGORY';
 export const ADD_CATEGORY = 'ADD_CATEGORY';

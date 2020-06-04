@@ -18,6 +18,7 @@ const login = (state = initState, action) => {
             //state.push(action.user);
             return [...state];
         case types.LOGOUT:
+            localStorage.removeItem("user");
             state = {};
             return state;
         default:
