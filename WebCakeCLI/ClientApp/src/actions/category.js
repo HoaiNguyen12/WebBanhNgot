@@ -10,10 +10,26 @@ export const actFetchCategoryRequest = () => {
     }
 }
 
-export const actFetchCategory = (categorys) => {
+export const actFetchCategory = (categories) => {
     return {
         type: types.FETCH_CATEGORY,
-        payload: categorys
+        payload: categories
+    }
+}
+
+export const actGetCategoryRequest = (id) => {
+    return (dispatch) => {
+        return callApi("categories/" + id, "GET", null).then(res => {
+            //console.log(res);
+            dispatch(actGetCategory(res.data))
+        });
+    }
+}
+
+export const actGetCategory = (category) => {
+    return {
+        type: types.GET_CATEGORY,
+        payload: category
     }
 }
 

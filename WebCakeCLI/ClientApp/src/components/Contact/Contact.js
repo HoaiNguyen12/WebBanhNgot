@@ -32,40 +32,11 @@ export default class Contact extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg-12">
-                                <form id="contactForm">
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <div className="form-group">
-                                                <input type="text" className="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name" />
-                                                <div className="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-12">
-                                            <div className="form-group">
-                                                <input type="text" placeholder="Your Email" id="email" className="form-control" name="name" required data-error="Please enter your email" />
-                                                <div className="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-12">
-                                            <div className="form-group">
-                                                <input type="number" placeholder="Please Select Person" id="guest" className="form-control" name="name" required data-error="Please enter your email" />
+                                
+                                <strong>Support:</strong>   <a href="mailto:Hoainguyen.1128@gmail.com">Support@example.com</a><br />
+                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFast-food-261690751401405%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=350&height=100&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                    ></iframe>
 
-                                                <div className="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-12">
-                                            <div className="form-group">
-                                                <textarea className="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
-                                                <div className="help-block with-errors"></div>
-                                            </div>
-                                            <div className="submit-button text-center">
-                                                <button className="btn btn-common" id="submit" type="submit">Send Message</button>
-                                                <div id="msgSubmit" className="h3 text-center hidden"></div>
-                                                <div className="clearfix"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
