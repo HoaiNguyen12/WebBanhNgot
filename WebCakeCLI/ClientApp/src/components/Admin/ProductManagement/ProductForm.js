@@ -74,7 +74,7 @@ class ProductForm extends Component {
 
     render() {
         const { categories, product } = this.props;
-        const path = product?.productImage ? `images/${product?.productImage}` : "Chỗ này thêm 1 ảnh trống nào đó đề phòng không có file ảnh " ;
+        const path = product?.productImage ? `images/${product?.productImage}` : `images/111.jpg` ;
         const title = this.props.match.params.type == "edit" ? "Sửa sản phẩm" : "Thêm sản phẩm" ;
         return(
             <div className="container p-5">

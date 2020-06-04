@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { actAddUserRequest, actGetUserRequest, actUpdateUserRequest} from './../../actions/index';
+import { actAddUserRequest, actGetUserRequest, actUpdateUserRequest} from '../../../actions/user';
 import { connect} from 'react-redux';
 
 class UserForm extends Component {
@@ -19,7 +19,7 @@ class UserForm extends Component {
     componentDidMount() {
         var { match } = this.props;
         if (match) {
-            var id = match.param.id;
+            var id = match.params.id;
             this.props.onEditUser(id);
         }
     }

@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { actGetBillRequest, actUpdateBillRequest} from './../../actions/index';
+import { actGetBillRequest, actUpdateBillRequest} from '../../../actions/bill';
 import { connect} from 'react-redux';
 class OrderForm extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class OrderForm extends Component {
     componentDidMount() {
         var { match } = this.props;
         if (match) {
-            var id = match.param.id;
+            var { id } = this.props?.match?.params;
             this.props.onEditBill(id);
         }
     }
@@ -55,7 +55,7 @@ class OrderForm extends Component {
             billNote: billNote,
             billPayment: billPayment
         }
-        this.props.onUpdateUser(bill);
+        this.props.onUpdateBill(bill);
         history.goBack();
     }
     render(){
